@@ -6,4 +6,5 @@ export const StyledFlex = styled.div`
   justify-content: ${props =>
     props.justify || 'space-between'};
   align-items: ${props => props.align || 'center'};
+  height: 100%;
 `

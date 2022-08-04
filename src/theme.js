@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-const font = 'sans-serif'
+const font = 'HelveticaNeue, Arial, sans-serif'
 
 // Color palette
 const black = '#000000'
@@ -18,7 +18,7 @@ const size = {
   xs: 550,
   small: 768,
   med: 992,
-  large: 1200,
+  large: 1920,
 }
 
 const above = Object.keys(size).reduce((acc, label) => {
@@ -42,10 +42,22 @@ const below = Object.keys(size).reduce((acc, label) => {
 export default {
   above,
   below,
+  size,
   boxShadows,
   font,
   spaces: [0, 4, 8, 16, 32, 64, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
+  fontWeights: [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+  ],
   colors: {
     primary,
     secondary,

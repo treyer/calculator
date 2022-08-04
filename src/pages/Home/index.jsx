@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { PageLayout } from '@/layouts'
-
+import { PageLayout } from '@/layouts/PageLayout'
 import Loader from '@/components/Loader'
 
 import { Card, Heading } from './components'
