@@ -1,3 +1,4 @@
-export const isFunctional = () => {
-  return true
+export const isFunctional = type => {
+  console.dir(type.componentsType)
+  return type === 'functional'
 }

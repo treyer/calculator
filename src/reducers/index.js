@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import example from './example'
+import settings from './settings'
 
 export const rootReducer = combineReducers({
-  example,
+  settings,
 })
