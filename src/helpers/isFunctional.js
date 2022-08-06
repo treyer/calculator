@@ -1,4 +1,3 @@
-export const isFunctional = type => {
-  console.dir(type.componentsType)
-  return type === 'functional'
+export const isFunctional = appType => {
+  return appType === 'functional'
 }

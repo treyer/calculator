@@ -1,28 +1,32 @@
 import { createAction, handleActions } from 'redux-actions'
 
 const INITIAL_STATE = {
-  componentsType: 'functional',
+  appType: 'functional',
   theme: 'light',
 }
 
-const changeComponentsType = createAction(
+export const changeComponentsType = createAction(
   'CHANGE_COMPONENTS_TYPE',
 )
-const changeTheme = createAction('CHANGE_THEME')
+export const changeTheme = createAction('CHANGE_THEME')
 
 export default handleActions(
   {
-    [changeComponentsType]: state => ({
-      ...state,
-      componentsType:
-        state.componentsType === 'functional'
-          ? 'class'
-          : 'functional',
-    }),
-    [changeTheme]: state => ({
-      ...state,
-      theme: state.theme === 'light' ? 'dark' : 'light',
-    }),
+    [changeComponentsType]: state => {
+      return {
+        ...state,
+        appType:
+          state.appType === 'functional'
+            ? 'class'
+            : 'functional',
+      }
+    },
+    [changeTheme]: state => {
+      return {
+        ...state,
+        theme: state.theme === 'light' ? 'dark' : 'light',
+      }
+    },
   },
   INITIAL_STATE,
 )
