@@ -45,8 +45,8 @@ export default {
   size,
   boxShadows,
   font,
-  spaces: [0, 4, 8, 16, 32, 64, 128],
-  fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72, 80],
+  spaces: [0, 4, 8, 16, 32, 64, 70, 84, 128],
+  fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 60, 72, 80],
   fontWeights: [
     100,
     200,

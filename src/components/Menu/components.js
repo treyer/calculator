@@ -9,7 +9,7 @@ export const NavigationLink = styled(NavLink)`
   margin-left: 32px;
 
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
-  font-weight: ${theme.fontWeights[4]};
+  font-weight: ${theme.fontWeights[3]};
   text-decoration: none;
 
   color: ${theme.colors.white};
