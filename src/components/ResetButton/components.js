@@ -10,6 +10,8 @@ export const Button = styled.a`
 
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
 
+  color: ${({ theme }) => theme.colors.fontColorPrimary};
+  background-color: ${({ theme }) => theme.colors.bgButton};
   border: 2px solid #434343;
   border-radius: 10px;
 

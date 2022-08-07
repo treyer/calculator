@@ -3,10 +3,10 @@ const font = 'HelveticaNeue, Arial, sans-serif'
 // Color palette
 const black = '#000000'
 const white = '#ffffff'
-const fontColorPrimary = black
-const fontColorSecondary = white
-const bgPrimary = white
-const bgButton = white
+const fontColorPrimary = white
+const fontColorSecondary = black
+const bgPrimary = black
+const bgButton = black
 const error = '#c86464'
 const primary = '#c06c84'
 const secondary = '#6c5b7b'

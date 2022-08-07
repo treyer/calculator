@@ -27,6 +27,7 @@ export const InputBox = styled.div`
 
 export const InputLabel = styled.h4`
   margin-bottom: 12px;
+  margin-left: 3px;
 
   font-weight: ${({ theme }) => theme.fontWeights[3]};
   font-size: ${({ theme }) => theme.fontSizes[3]}px;
