@@ -1,1 +1,1 @@
-export * from './isFunctional'
+export * from './isPreHeaderBtnActive'

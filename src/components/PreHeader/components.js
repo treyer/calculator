@@ -9,7 +9,7 @@ export const PreHeaderWrapper = styled.header`
   background-color: #434343;
 `
 
-export const PreHeaderButton = styled.div`
+export const PreHeaderBtn = styled.div`
   box-sizing: border-box;
   width: 50%;
   height: 100%;
