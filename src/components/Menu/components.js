@@ -31,4 +31,8 @@ export const NavigationLink = styled(NavLink)`
   &.active:after {
     display: block;
   }
+
+  &:hover {
+    opacity: 0.7;
+  }
 `

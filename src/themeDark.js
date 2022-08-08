@@ -2,10 +2,12 @@
 const black = '#000000'
 const white = '#ffffff'
 const fontColorPrimary = white
-const fontColorSecondary = black
+const fontColorSecondary = white
 const bgPrimary = black
 const bgButton = black
 const bgButtonHover = '#494848'
+const bgHeaderMain = '#181818'
+const bgHeaderSecondary = '#383838'
 const borderButton = '#707070'
 const borderOptions = '#707070'
 const error = '#c86464'
@@ -46,6 +48,8 @@ export default {
     bgPrimary,
     bgButton,
     bgButtonHover,
+    bgHeaderMain,
+    bgHeaderSecondary,
     borderButton,
     borderOptions,
     primary,

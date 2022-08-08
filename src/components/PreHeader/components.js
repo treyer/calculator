@@ -6,7 +6,8 @@ export const PreHeaderWrapper = styled.header`
   width: 100%;
   height: 30px;
 
-  background-color: #434343;
+  background-color: ${({ theme }) =>
+    theme.colors.bgHeaderMain};
 `
 
 export const PreHeaderBtn = styled.div`
@@ -17,7 +18,8 @@ export const PreHeaderBtn = styled.div`
   border: 2px solid ${theme.colors.white};
 
   &.active {
-    background-color: #7c7c7c;
+    background-color: ${({ theme }) =>
+      theme.colors.bgHeaderSecondary};
 
     cursor: default;
   }
@@ -36,5 +38,5 @@ export const ButtonText = styled.h4`
   font-weight: 300;
   font-size: ${theme.fontSizes[1]}px;
 
-  color: ${theme.colors.white};
+  color: ${theme.colors.fontColorSecondary};
 `
