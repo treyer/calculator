@@ -1,30 +1,52 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { Select, SelectOption } from './components'
+import {
+  OptionsWrapper,
+  Select,
+  SelectOption,
+} from './components'
+import Flex from '@/components/Flex'
 
 import { changeTheme } from '@/reducers/settings'
+import { capitalizeFirstLetter } from '@/helpers'
+import { useClickOutside } from '@/hooks/useClickOutside'
 
 export const ThemeSelect = () => {
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false)
   const { theme } = useSelector(state => state.settings)
   const dispatch = useDispatch()
+  const selectEl = useRef(null)
+  useClickOutside(selectEl, () => setIsOptionsOpen(false))
 
   const handleThemeChange = () => {
     dispatch(changeTheme())
   }
 
+  const handleSelectClick = () => {
+    setIsOptionsOpen(prev => !prev)
+  }
+
   return (
-    <Select value={theme} onChange={handleThemeChange}>
-      <SelectOption
-        value="light"
-        className={theme === 'light' && 'hidden'}>
-        Light theme
-      </SelectOption>
-      <SelectOption
-        value="dark"
-        className={theme === 'dark' && 'hidden'}>
-        Dark theme
-      </SelectOption>
+    <Select
+      className={isOptionsOpen && 'opened'}
+      ref={selectEl}
+      onClick={handleSelectClick}>
+      <Flex>{`${capitalizeFirstLetter(theme)} theme`}</Flex>
+      {isOptionsOpen && (
+        <OptionsWrapper>
+          <SelectOption
+            onClick={handleThemeChange}
+            className={theme === 'light' && 'hidden'}>
+            <Flex>Light theme</Flex>
+          </SelectOption>
+          <SelectOption
+            onClick={handleThemeChange}
+            className={theme === 'dark' && 'hidden'}>
+            <Flex>Dark theme</Flex>
+          </SelectOption>
+        </OptionsWrapper>
+      )}
     </Select>
   )
 }

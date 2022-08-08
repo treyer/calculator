@@ -1,5 +1,3 @@
-const font = 'HelveticaNeue, Arial, sans-serif'
-
 // Color palette
 const black = '#000000'
 const white = '#ffffff'
@@ -7,6 +5,9 @@ const fontColorPrimary = black
 const fontColorSecondary = white
 const bgPrimary = white
 const bgButton = white
+const bgButtonHover = '#e0e0e0'
+const borderButton = '#434343'
+const borderOptions = '#707070'
 const error = '#c86464'
 const primary = '#c06c84'
 const secondary = '#6c5b7b'
@@ -26,7 +27,6 @@ const size = {
 export default {
   size,
   boxShadows,
-  font,
   spaces: [0, 4, 8, 16, 32, 64, 70, 84, 128],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 60, 72, 80],
   fontWeights: [
@@ -45,6 +45,9 @@ export default {
     fontColorSecondary,
     bgPrimary,
     bgButton,
+    bgButtonHover,
+    borderButton,
+    borderOptions,
     primary,
     secondary,
     secondaryLight,

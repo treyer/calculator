@@ -12,8 +12,15 @@ export const Button = styled.a`
 
   color: ${({ theme }) => theme.colors.fontColorPrimary};
   background-color: ${({ theme }) => theme.colors.bgButton};
-  border: 2px solid #434343;
+  border: 2px solid
+    ${({ theme }) => theme.colors.borderButton};
   border-radius: 10px;
 
   cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: ${({ theme }) =>
+      theme.colors.bgButtonHover};
+  }
 `

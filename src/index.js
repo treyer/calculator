@@ -9,11 +9,13 @@ import { Provider } from 'react-redux'
 import { MainLayout } from './layouts/MainLayout'
 
 import { store } from '@/store'
+import GlobalStyles from './globalStyles'
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <MainLayout />
+      <GlobalStyles />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),

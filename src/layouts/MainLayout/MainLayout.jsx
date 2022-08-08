@@ -7,7 +7,6 @@ import { PreHeader } from '@/components/PreHeader'
 import { Header } from '@/components/Header'
 import { LayoutWrapper } from './components'
 
-import GlobalStyles from '@/globalStyles'
 import theme from '@/theme'
 import themeDark from '@/themeDark'
 
@@ -20,7 +19,6 @@ export const MainLayout = () => {
     <ThemeProvider
       theme={appTheme === 'light' ? theme : themeDark}>
       <LayoutWrapper>
-        <GlobalStyles />
         <PreHeader />
         <Header />
         {appType === 'functional' && <Application />}
