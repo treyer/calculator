@@ -4,7 +4,7 @@ export const Card = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.bgPage};
 
   padding: ${({ theme }) => theme.spaces[6]}px
     ${({ theme }) => theme.spaces[7]}px;
