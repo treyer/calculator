@@ -12,7 +12,7 @@ export const NavigationLink = styled(NavLink)`
   font-weight: ${theme.fontWeights[3]};
   text-decoration: none;
 
-  color: ${theme.colors.white};
+  color: ${theme.colors.fontColorSecondary};
 
   &:after {
     content: '';

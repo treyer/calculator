@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Flex from '@/components/Flex'
 import { ButtonText, PreHeaderBtn } from './components'
@@ -7,7 +8,7 @@ import { ButtonText, PreHeaderBtn } from './components'
 import { changeComponentsType } from '@/reducers/settings'
 import { isPreHeaderBtnActive } from '@/helpers'
 
-export const PreHeaderButton = ({ children, btnType }) => {
+function PreHeaderButton({ children, btnType }) {
   const { appType } = useSelector(state => state.settings)
   const dispatch = useDispatch()
 
@@ -29,3 +30,10 @@ export const PreHeaderButton = ({ children, btnType }) => {
     </PreHeaderBtn>
   )
 }
+
+PreHeaderButton.propTypes = {
+  children: PropTypes.string.isRequired,
+  btnType: PropTypes.oneOf(['functional', 'class']),
+}
+
+export default PreHeaderButton
