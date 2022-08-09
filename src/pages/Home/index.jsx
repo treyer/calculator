@@ -1,16 +1,15 @@
 import React from 'react'
 
-import { PageLayout } from '@/layouts/PageLayout'
-import Loader from '@/components/Loader'
+import { Calculator } from '@/components/Calculator'
+import { Card } from './components'
 
-import { Card, Heading } from './components'
+import { PageLayout } from '@/layouts/PageLayout'
 
 export default () => {
   return (
     <PageLayout>
       <Card>
-        <Heading id="welcome">Welcome!</Heading>
-        <Loader />
+        <Calculator />
       </Card>
     </PageLayout>
   )
