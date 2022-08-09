@@ -11,6 +11,7 @@ const bgHeaderSecondary = '#383838'
 const bgPage = '#808080'
 const borderButton = white
 const borderOptions = white
+const borderKey = white
 const error = '#c86464'
 const primary = '#c06c84'
 const secondary = '#6c5b7b'
@@ -54,6 +55,7 @@ export default {
     bgPage,
     borderButton,
     borderOptions,
+    borderKey,
     primary,
     secondary,
     secondaryLight,
