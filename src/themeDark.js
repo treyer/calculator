@@ -9,6 +9,9 @@ const bgButtonHover = '#494848'
 const bgHeaderMain = '#181818'
 const bgHeaderSecondary = '#383838'
 const bgPage = '#808080'
+const bgScrollbar = white
+const bgScrollbarTrack = bgPage
+const bgScrollbarHover = '#e0e0e0'
 const borderButton = white
 const borderOptions = white
 const borderKey = white
@@ -53,6 +56,9 @@ export default {
     bgHeaderMain,
     bgHeaderSecondary,
     bgPage,
+    bgScrollbar,
+    bgScrollbarTrack,
+    bgScrollbarHover,
     borderButton,
     borderOptions,
     borderKey,

@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 138px;
   max-width: 1446px;
+  min-width: 700px;
 
   border-bottom: 3px solid
     ${({ theme }) => theme.colors.borderButton};
