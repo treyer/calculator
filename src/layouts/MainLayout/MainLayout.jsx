@@ -7,7 +7,7 @@ import {
   PreHeader,
   PreHeaderClass,
 } from '@/components/PreHeader'
-import { Header } from '@/components/Header'
+import { Header, HeaderClass } from '@/components/Header'
 import { LayoutWrapper } from './components'
 
 import theme from '@/theme'
@@ -31,6 +31,7 @@ export const MainLayout = () => {
       {appType === 'class' && (
         <LayoutWrapper>
           <PreHeaderClass />
+          <HeaderClass />
           <div>Class</div>
         </LayoutWrapper>
       )}
