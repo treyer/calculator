@@ -6,7 +6,7 @@ import {
   Select,
   SelectOption,
 } from './components'
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 
 import { changeTheme } from '@/reducers/settings'
 import { capitalizeFirstLetter } from '@/helpers'

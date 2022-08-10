@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 import { KeyBody, KeyText } from './components'
 
 function Key({ children, title }) {

@@ -8,7 +8,7 @@ import {
   InputLabel,
   SettingsBox,
 } from './components'
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 import { ThemeSelect } from '@/components/ThemeSelect'
 import { ResetButton } from '@/components/ResetButton'
 

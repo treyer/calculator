@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Key from '@/components/Key/Key'
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 import { Grid } from './components'
 
 import { KEYS } from '@/constants/keys'

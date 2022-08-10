@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 import { Display } from '@/components/Display'
 import { Keypad } from '@/components/Keypad'
 import { History } from '@/components/History'

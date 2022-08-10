@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Flex from '@/components/Flex'
+import Flex from '@/components/Flex/Flex'
 import { ButtonText, PreHeaderBtn } from './components'
 
 import { changeComponentsType } from '@/reducers/settings'

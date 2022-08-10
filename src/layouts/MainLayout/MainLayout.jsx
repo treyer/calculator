@@ -3,7 +3,10 @@ import { useSelector } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
 import Application from '@/App'
-import { PreHeader } from '@/components/PreHeader'
+import {
+  PreHeader,
+  PreHeaderClass,
+} from '@/components/PreHeader'
 import { Header } from '@/components/Header'
 import { LayoutWrapper } from './components'
 
@@ -18,12 +21,19 @@ export const MainLayout = () => {
   return (
     <ThemeProvider
       theme={appTheme === 'light' ? theme : themeDark}>
-      <LayoutWrapper>
-        <PreHeader />
-        <Header />
-        {appType === 'functional' && <Application />}
-        {appType === 'class' && <div>Class</div>}
-      </LayoutWrapper>
+      {appType === 'functional' && (
+        <LayoutWrapper>
+          <PreHeader />
+          <Header />
+          <Application />
+        </LayoutWrapper>
+      )}
+      {appType === 'class' && (
+        <LayoutWrapper>
+          <PreHeaderClass />
+          <div>Class</div>
+        </LayoutWrapper>
+      )}
     </ThemeProvider>
   )
 }
