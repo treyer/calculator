@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Flex from '@/components/Flex/Flex'
 import { ButtonText, PreHeaderBtn } from './components'
 
-import { changeComponentsType } from '@/reducers/settings'
+import { changeComponentsType } from '@/store/actions/settings'
 import { isPreHeaderBtnActive } from '@/helpers'
 
 function PreHeaderButton({ children, btnType }) {

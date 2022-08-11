@@ -8,7 +8,7 @@ import {
 } from './components'
 import Flex from '@/components/Flex/Flex'
 
-import { changeTheme } from '@/reducers/settings'
+import { changeTheme } from '@/store/actions/settings'
 import { capitalizeFirstLetter } from '@/helpers'
 import { useClickOutside } from '@/hooks/useClickOutside'
 

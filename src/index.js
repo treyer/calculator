@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 
 import { MainLayout } from './layouts/MainLayout'
 
-import { store } from '@/store'
+import { store } from '@/store/store'
 import GlobalStyles from './globalStyles'
 
 ReactDOM.render(

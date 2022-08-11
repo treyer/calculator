@@ -8,7 +8,7 @@ import {
 } from './components'
 import FlexClass from '@/components/Flex/FlexClass'
 
-import { changeTheme } from '@/reducers/settings'
+import { changeTheme } from '@/store/actions/settings'
 import { capitalizeFirstLetter } from '@/helpers'
 
 class ThemeSelectClass extends React.Component {
@@ -74,9 +74,10 @@ class ThemeSelectClass extends React.Component {
         className={this.state.isOptionsOpen && 'opened'}
         ref={this.selectEl}
         onClick={this.handleSelectClick}>
-        <FlexClass>{`${capitalizeFirstLetter(
-          this.props.theme,
-        )} theme`}
+        <FlexClass>
+          {`${capitalizeFirstLetter(
+            this.props.theme,
+          )} theme`}
         </FlexClass>
         {this.state.isOptionsOpen && (
           <OptionsWrapper>

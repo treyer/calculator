@@ -1,4 +1,10 @@
-import { createAction, handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions'
+import {
+  changeCalculatorType,
+  changeComponentsType,
+  changeExpressionType,
+  changeTheme,
+} from '@/store/actions/settings'
 
 const INITIAL_STATE = {
   appType: 'functional', // 'functional' or 'class'
@@ -6,17 +12,6 @@ const INITIAL_STATE = {
   expressionType: 'simple', // 'simple' or 'complex'
   calculatorType: 'basic', // 'basic' or 'advanced'
 }
-
-export const changeComponentsType = createAction(
-  'CHANGE_COMPONENTS_TYPE',
-)
-export const changeTheme = createAction('CHANGE_THEME')
-export const changeExpressionType = createAction(
-  'CHANGE_EXPRESSION_TYPE',
-)
-export const changeCalculatorType = createAction(
-  'CHANGE_CALCULATOR_TYPE',
-)
 
 export default handleActions(
   {
