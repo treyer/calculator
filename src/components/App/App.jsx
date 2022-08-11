@@ -11,7 +11,7 @@ import Loader from '@/components/Loader'
 const HomePage = lazy(() => import('@/pages/Home'))
 const SettingsPage = lazy(() => import('@/pages/Settings'))
 
-export default () => (
+export const Application = () => (
   <Suspense fallback={<Loader />}>
     <Switch>
       <Route

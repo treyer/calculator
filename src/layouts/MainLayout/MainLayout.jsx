@@ -2,12 +2,15 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import Application from '@/App'
 import {
   PreHeader,
   PreHeaderClass,
 } from '@/components/PreHeader'
 import { Header, HeaderClass } from '@/components/Header'
+import {
+  Application,
+  ApplicationClass,
+} from '@/components/App'
 import { LayoutWrapper } from './components'
 
 import theme from '@/theme'
@@ -32,7 +35,7 @@ export const MainLayout = () => {
         <LayoutWrapper>
           <PreHeaderClass />
           <HeaderClass />
-          <div>Class</div>
+          <ApplicationClass />
         </LayoutWrapper>
       )}
     </ThemeProvider>
