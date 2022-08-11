@@ -12,6 +12,9 @@ const bgPage = '#808080'
 const bgScrollbar = white
 const bgScrollbarTrack = bgPage
 const bgScrollbarHover = '#e0e0e0'
+const bgSwitcher = '#383838'
+const bgSwitcherActive = '#181818'
+const bgSwitcherThumb = white
 const borderButton = white
 const borderOptions = white
 const borderKey = white
@@ -59,6 +62,9 @@ export default {
     bgScrollbar,
     bgScrollbarTrack,
     bgScrollbarHover,
+    bgSwitcher,
+    bgSwitcherActive,
+    bgSwitcherThumb,
     borderButton,
     borderOptions,
     borderKey,
