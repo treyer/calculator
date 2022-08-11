@@ -8,7 +8,7 @@ import {
 
 import Loader from '@/components/Loader'
 
-const HomePage = lazy(() => import('@/pages/Home'))
+const HomePage = lazy(() => import('@/pages/HomeClass'))
 const SettingsPage = lazy(() =>
   import('@/pages/SettingsClass'),
 )
