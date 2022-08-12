@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Flex from '@/components/Flex/Flex'
-import SwitchPanel from '../SwitchPanel/SwitchPanel'
+import SwitchPanel from '@/components/SwitchPanel/SwitchPanel'
 
 import {
   changeCalculatorType,
