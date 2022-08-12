@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const HistoryWrapper = styled.div`
   box-sizing: border-box;
   width: 391px;
-  height: calc(100vh - 194px);
+  height: calc(100vh - 224px);
+  max-height: 1120px;
   margin-left: 22px;
 
   border-left: 3px solid
@@ -21,7 +22,7 @@ export const Heading = styled.h3`
 
 export const ContentBox = styled.div`
   width: 324px;
-  height: calc(100vh - 310px);
+  height: calc(100vh - 340px);
   margin-top: 56px;
   margin-left: 52px;
 

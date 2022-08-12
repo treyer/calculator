@@ -6,6 +6,7 @@ export const Label = styled.label`
   display: inline-block;
   width: 60px;
   height: 30px;
+  margin: 0 30px;
 
   & input {
     width: 0;

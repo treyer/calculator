@@ -32,7 +32,7 @@ export const Calculator = () => {
       <Flex direction="column" justify="start">
         <ControlPanel />
         <CalculatorInner>
-          <Flex>
+          <Flex align="start">
             <CalculatorMain>
               <Flex direction="column" justify="start">
                 <Display output={output} />

@@ -18,7 +18,7 @@ export class CalculatorClass extends React.Component {
         <FlexClass direction="column" justify="start">
           <ControlPanelClass />
           <CalculatorInner>
-            <FlexClass>
+            <FlexClass align="start">
               <CalculatorMain>
                 <FlexClass
                   direction="column"
