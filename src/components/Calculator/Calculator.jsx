@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Flex from '@/components/Flex/Flex'
 import Display from '@/components/Display/Display'
