@@ -8,7 +8,7 @@ import {
 
 const INITIAL_STATE = {
   historyArr: [],
-  userInput: '0',
+  userInput: [{ number: '0' }],
 }
 
 export default handleActions(

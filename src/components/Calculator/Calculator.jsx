@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Flex from '@/components/Flex/Flex'
 import Display from '@/components/Display/Display'
@@ -11,20 +12,68 @@ import {
   CalculatorWrapper,
 } from './components'
 import { brackets, operators } from '@/constants/types'
+import { convertInputToString } from '@/helpers/convertInputToString'
+import { updateUserInput } from '@/store/actions/data'
+import {
+  handleAddBracket,
+  handleAddDigit,
+  handleAddDot,
+  handleAddOperator,
+  handleClearAll,
+  handleClearEntry,
+} from '@/helpers/handleKeysInput'
 
 export const Calculator = () => {
-  const [output, setOutput] = useState('0')
+  const { userInput } = useSelector(state => state.data)
+  const { expressionType } = useSelector(
+    state => state.settings,
+  )
+  const dispatch = useDispatch()
+  const updateInput = newInput => {
+    dispatch(updateUserInput(newInput))
+  }
 
   const operations = {
-    clearAll: () => setOutput('0'),
-    addDigit: digit => setOutput(prev => prev + digit),
-    addOperator: operator =>
-      setOutput(prev => prev + operators[operator]),
+    addDigit: digit => {
+      const res = handleAddDigit(digit, userInput)
+      if (res) updateInput(res)
+    },
+    addDot: () => {
+      const res = handleAddDot(userInput)
+      if (res) updateInput(res)
+    },
+    addOperator: operator => {
+      if (
+        expressionType === 'simple' &&
+        userInput.length === 3
+      ) {
+        // TODO: calculate and add operator
+      } else {
+        const res = handleAddOperator(
+          operators[operator],
+          userInput,
+        )
+        if (res) updateInput(res)
+      }
+    },
+    addBracket: bracket => {
+      if (expressionType === 'complex') {
+        const res = handleAddBracket(
+          brackets[bracket],
+          userInput,
+        )
+        if (res) updateInput(res)
+      }
+    },
+    clearAll: () => {
+      const res = handleClearAll(userInput)
+      if (res) updateInput(res)
+    },
+    clearEntry: () => {
+      const res = handleClearEntry(userInput)
+      if (res) updateInput(res)
+    },
     calculate: () => {},
-    addDot: () => setOutput(prev => prev + '.'),
-    addBracket: bracket =>
-      setOutput(prev => prev + brackets[bracket]),
-    clearEntry: () => {},
   }
 
   return (
@@ -35,7 +84,9 @@ export const Calculator = () => {
           <Flex align="start">
             <CalculatorMain>
               <Flex direction="column" justify="start">
-                <Display output={output} />
+                <Display
+                  output={convertInputToString(userInput)}
+                />
                 <Keypad operations={operations} />
               </Flex>
             </CalculatorMain>

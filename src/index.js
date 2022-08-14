@@ -11,8 +11,6 @@ import { MainLayout } from './layouts/MainLayout'
 import { store } from '@/store'
 import GlobalStyles from './globalStyles'
 
-console.log(store.getState())
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
