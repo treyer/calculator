@@ -6,6 +6,7 @@ const fontColorSecondary = white
 const bgPrimary = white
 const bgButton = white
 const bgButtonHover = '#e0e0e0'
+const bgButtonError = '#ffc0cb'
 const bgHeaderMain = '#434343'
 const bgHeaderSecondary = '#7c7c7c'
 const bgPage = white
@@ -56,6 +57,7 @@ export default {
     bgPrimary,
     bgButton,
     bgButtonHover,
+    bgButtonError,
     bgHeaderMain,
     bgHeaderSecondary,
     bgPage,

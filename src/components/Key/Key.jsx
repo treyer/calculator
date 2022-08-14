@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Flex from '@/components/Flex/Flex'
 import { KeyBody, KeyText } from './components'
 
 function Key({ children, title, type, payload, execute }) {
+  const [isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    if (isError === true) {
+      setTimeout(() => {
+        setIsError(false)
+      }, 200)
+    }
+  })
+
   return (
     <KeyBody
+      className={isError && 'error'}
       title={title}
       onClick={() =>
-        execute({ type: type, payload: payload })
+        execute({
+          type: type,
+          payload: payload,
+          callback: setIsError,
+        })
       }>
       <Flex justify="center">
         <KeyText>{children}</KeyText>

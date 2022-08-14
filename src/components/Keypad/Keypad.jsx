@@ -9,7 +9,7 @@ import { KEYS } from '@/constants/keys'
 
 const Keypad = ({ operations }) => {
   const execute = action => {
-    operations[action.type](action.payload)
+    operations[action.type](action.payload, action.callback)
   }
 
   return (

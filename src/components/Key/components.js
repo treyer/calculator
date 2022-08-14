@@ -16,6 +16,16 @@ export const KeyBody = styled.div`
 
   cursor: pointer;
 
+  &.error {
+    background-color: ${({ theme }) =>
+      theme.colors.bgButtonError};
+  }
+
+  &.error:hover {
+    background-color: ${({ theme }) =>
+      theme.colors.bgButtonError};
+  }
+
   &:hover,
   &:active {
     background-color: ${({ theme }) =>

@@ -34,35 +34,54 @@ export const Calculator = () => {
   }
 
   const operations = {
-    addDigit: digit => {
+    addDigit: (digit, setIsError) => {
       const res = handleAddDigit(digit, userInput)
-      if (res) updateInput(res)
+      if (res) {
+        updateInput(res)
+      } else {
+        setIsError(true)
+      }
     },
-    addDot: () => {
+    addDot: (payload, setIsError) => {
       const res = handleAddDot(userInput)
-      if (res) updateInput(res)
+      if (res) {
+        updateInput(res)
+      } else {
+        setIsError(true)
+      }
     },
-    addOperator: operator => {
+    addOperator: (operator, setIsError) => {
       if (
         expressionType === 'simple' &&
         userInput.length === 3
       ) {
         // TODO: calculate and add operator
+        console.log('// TODO: calculate and add operator')
       } else {
         const res = handleAddOperator(
           operators[operator],
           userInput,
         )
-        if (res) updateInput(res)
+        if (res) {
+          updateInput(res)
+        } else {
+          setIsError(true)
+        }
       }
     },
-    addBracket: bracket => {
+    addBracket: (bracket, setIsError) => {
       if (expressionType === 'complex') {
         const res = handleAddBracket(
           brackets[bracket],
           userInput,
         )
-        if (res) updateInput(res)
+        if (res) {
+          updateInput(res)
+        } else {
+          setIsError(true)
+        }
+      } else {
+        setIsError(true)
       }
     },
     clearAll: () => {
