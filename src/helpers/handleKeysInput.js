@@ -25,6 +25,31 @@ const countBrackets = inputArr => {
   )
 }
 
+const isNumberInputComplete = number => {
+  if (number === '-' || number === '-.' || number === '.') {
+    return false
+  }
+  if (
+    number.includes('.') &&
+    number.split('.')[1].length === 0
+  ) {
+    return false
+  }
+  return true
+}
+
+const trimNumber = number => {
+  if (number.includes('.')) {
+    number = number.replace(/0*$/, '')
+    if (number.split('.')[1].length === 0) {
+      number = number.slice(0, -1)
+      if (number === '-0') number = '0'
+      if (number === '-' || '') number = '0'
+    }
+  }
+  return number
+}
+
 // returns null if the digit cannot be added or new inputArr
 export const handleAddDigit = (digitInput, inputArr) => {
   const {
@@ -91,13 +116,19 @@ export const handleAddOperator = (
 
   if (inputArr.length === 1) {
     if (lastElementKey === 'number') {
+      if (!isNumberInputComplete(lastElementValue)) {
+        return null
+      }
       if (lastElementValue === '0') {
         if (newOperator === '-') {
           return [{ number: '-' }]
         }
         return [{ number: '0' }, { operator: newOperator }]
       }
-      if (lastElementValue === '-') return null
+
+      inputArrCopy[0] = {
+        number: trimNumber(lastElementValue),
+      }
       inputArrCopy.push({ operator: newOperator })
       return inputArrCopy
     }
@@ -126,12 +157,13 @@ export const handleAddOperator = (
       return inputArrCopy
     }
     if (lastElementKey === 'number') {
-      if (lastElementValue === '-') {
+      if (!isNumberInputComplete(lastElementValue)) {
         return null
       }
-      if (lastElementValue === '-.') {
-        return null
-      }
+      inputArrCopy.pop()
+      inputArrCopy.push({
+        number: trimNumber(lastElementValue),
+      })
       inputArrCopy.push({ operator: newOperator })
       return inputArrCopy
     }
@@ -151,6 +183,9 @@ export const handleAddBracket = (
 
   if (inputArr.length === 1) {
     if (lastElementKey === 'number') {
+      if (!isNumberInputComplete(lastElementValue)) {
+        return null
+      }
       if (
         lastElementValue === '0' &&
         inputBracket === '('
@@ -168,12 +203,19 @@ export const handleAddBracket = (
     }
   } else {
     if (lastElementKey === 'number') {
+      if (!isNumberInputComplete(lastElementValue)) {
+        return null
+      }
       if (inputBracket === ')') {
         const {
           openBracketsCount,
           closeBracketsCount,
         } = countBrackets(inputArr)
         if (openBracketsCount > closeBracketsCount) {
+          inputArrCopy.pop()
+          inputArrCopy.push({
+            number: trimNumber(lastElementValue),
+          })
           inputArrCopy.push({ bracket: ')' })
           return inputArrCopy
         }
