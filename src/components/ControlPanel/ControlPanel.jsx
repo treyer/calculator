@@ -10,7 +10,7 @@ import {
 } from '@/store/actions/settings'
 import { PanelWrapper } from './components'
 
-export const ControlPanel = () => {
+function ControlPanel({ clearAll }) {
   const { expressionType } = useSelector(
     state => state.settings,
   )
@@ -20,10 +20,12 @@ export const ControlPanel = () => {
   const dispatch = useDispatch()
 
   const ChangeExpressionType = () => {
+    if (expressionType === 'complex') clearAll()
     dispatch(changeExpressionType())
   }
 
   const ChangeCalculatorType = () => {
+    if (calculatorType === 'advanced') clearAll()
     dispatch(changeCalculatorType())
   }
 
@@ -48,3 +50,5 @@ export const ControlPanel = () => {
     </PanelWrapper>
   )
 }
+
+export default ControlPanel

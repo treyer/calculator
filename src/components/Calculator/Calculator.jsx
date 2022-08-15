@@ -5,7 +5,7 @@ import Flex from '@/components/Flex/Flex'
 import Display from '@/components/Display/Display'
 import Keypad from '../Keypad/Keypad'
 import { History } from '@/components/History'
-import { ControlPanel } from '@/components/ControlPanel'
+import ControlPanel from '../ControlPanel/ControlPanel'
 import {
   CalculatorInner,
   CalculatorMain,
@@ -98,7 +98,7 @@ export const Calculator = () => {
   return (
     <CalculatorWrapper>
       <Flex direction="column" justify="start">
-        <ControlPanel />
+        <ControlPanel clearAll={operations.clearAll} />
         <CalculatorInner>
           <Flex align="start">
             <CalculatorMain>
