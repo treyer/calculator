@@ -22,8 +22,9 @@ export const PanelLabel = styled.h5`
   position: absolute;
   top: -18px;
 
-  width: 100%;
+  width: 300px;
 
+  text-align: center;
   font-weight: ${({ theme }) => theme.fontWeights[2]};
   font-size: ${({ theme }) => theme.fontSizes[2]}px;
 `
