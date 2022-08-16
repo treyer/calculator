@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Flex from '@/components/Flex/Flex'
 import Display from '@/components/Display/Display'
-import Keypad from '../Keypad/Keypad'
+import Keypad from '@/components/Keypad/Keypad'
 import { History } from '@/components/History'
-import ControlPanel from '../ControlPanel/ControlPanel'
+import ControlPanel from '@/components/ControlPanel/ControlPanel'
 import {
   CalculatorInner,
   CalculatorMain,

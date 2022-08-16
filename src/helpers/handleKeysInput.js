@@ -65,10 +65,10 @@ export const trimNumber = number => {
     number = number.replace(/0*$/, '')
     if (number.split('.')[1].length === 0) {
       number = number.slice(0, -1)
-      if (number === '-0') number = '0'
-      if (number === '-' || '') number = '0'
     }
   }
+  if (number === '-0' || number === '-' || number === '')
+    number = '0'
   return number
 }
 
