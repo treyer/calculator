@@ -3,6 +3,7 @@ export const operators = {
   subtract: '-',
   divide: '/',
   add: '+',
+  modulus: '%',
 }
 
 export const brackets = {

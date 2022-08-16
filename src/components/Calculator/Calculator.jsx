@@ -50,6 +50,7 @@ export const Calculator = () => {
       const res = handleAddDigit(digit, userInput)
       res ? updateInput(res) : setIsError(true)
     },
+    addConstant: () => {},
     addDot: (payload, setIsError) => {
       const res = handleAddDot(userInput)
       res ? updateInput(res) : setIsError(true)
@@ -94,6 +95,7 @@ export const Calculator = () => {
         setIsError(true)
       }
     },
+    changeSign: () => {},
     clearAll: () => {
       const res = handleClearAll(userInput)
       if (res) updateInput(res)

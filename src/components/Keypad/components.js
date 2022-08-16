@@ -9,4 +9,8 @@ export const Grid = styled.div`
   height: calc(100vh - 340px);
   max-height: 1000px;
   padding: 0 94px 0 0;
+
+  &.advanced {
+    grid-template-columns: repeat(6, 1fr);
+  }
 `
