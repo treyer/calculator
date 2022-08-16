@@ -131,23 +131,43 @@ export const calculateExpression = userInput => {
 
 // calculates expression without parenthesis
 const calculateSimpleExpression = simpleStr => {
+  let indexModul = simpleStr.indexOf('%')
   let indexMult = simpleStr.indexOf('*')
   let indexDev = simpleStr.indexOf('/')
   let indexSubtr = simpleStr.indexOf('-', 1)
   let indexAdd = simpleStr.indexOf('+')
 
   while (
+    indexModul > -1 ||
     indexMult > -1 ||
     indexDev > -1 ||
     indexSubtr > -1 ||
     indexAdd > -1
   ) {
-    if (indexMult > -1 && indexDev > -1) {
-      if (indexMult < indexDev) {
+    if (
+      (indexModul > -1 && indexMult > -1) ||
+      (indexMult > -1 && indexDev > -1) ||
+      (indexModul > -1 && indexDev > -1)
+    ) {
+      const minPositive = [indexModul, indexMult, indexDev]
+        .sort((a, b) => a - b)
+        .find(el => el !== -1)
+
+      if (minPositive === indexModul) {
+        simpleStr = makeOperation(
+          simpleStr,
+          '%',
+          indexModul,
+        )
+      }
+      if (minPositive === indexMult) {
         simpleStr = makeOperation(simpleStr, '*', indexMult)
-      } else {
+      }
+      if (minPositive === indexDev) {
         simpleStr = makeOperation(simpleStr, '/', indexDev)
       }
+    } else if (indexModul > -1) {
+      simpleStr = makeOperation(simpleStr, '%', indexModul)
     } else if (indexMult > -1) {
       simpleStr = makeOperation(simpleStr, '*', indexMult)
     } else if (indexDev > -1) {
@@ -168,6 +188,7 @@ const calculateSimpleExpression = simpleStr => {
       simpleStr = makeOperation(simpleStr, '+', indexAdd)
     }
 
+    indexModul = simpleStr.indexOf('%')
     indexMult = simpleStr.indexOf('*')
     indexDev = simpleStr.indexOf('/')
     indexSubtr = simpleStr.indexOf('-', 1)
@@ -196,6 +217,7 @@ const makeOperation = (
       break
     }
     if (
+      str[i] !== '%' &&
       str[i] !== '*' &&
       str[i] !== '/' &&
       str[i] !== '+' &&
@@ -220,6 +242,7 @@ const makeOperation = (
       secondOperand += str[i]
       strCutEnd = i
     } else if (
+      str[i] !== '%' &&
       str[i] !== '*' &&
       str[i] !== '/' &&
       str[i] !== '+' &&
@@ -252,6 +275,8 @@ const makeOperation = (
       secondOperand.substr(eIndex + 2)
   }
 
+  if (operationSign === '%')
+    operationResult = +firstOperand % +secondOperand
   if (operationSign === '*')
     operationResult = +firstOperand * +secondOperand
   if (operationSign === '/') {

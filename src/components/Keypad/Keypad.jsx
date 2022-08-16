@@ -42,13 +42,15 @@ const Keypad = ({ operations }) => {
 
 Keypad.propTypes = {
   operations: PropTypes.shape({
-    clearAll: PropTypes.func.isRequired,
     addDigit: PropTypes.func.isRequired,
-    addOperator: PropTypes.func.isRequired,
-    calculate: PropTypes.func.isRequired,
+    addConstant: PropTypes.func.isRequired,
     addDot: PropTypes.func.isRequired,
+    addOperator: PropTypes.func.isRequired,
     addBracket: PropTypes.func.isRequired,
+    changeSign: PropTypes.func.isRequired,
+    clearAll: PropTypes.func.isRequired,
     clearEntry: PropTypes.func.isRequired,
+    calculate: PropTypes.func.isRequired,
   }),
 }
 
