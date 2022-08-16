@@ -5,7 +5,7 @@ import Key from '@/components/Key/Key'
 import Flex from '@/components/Flex/Flex'
 import { Grid } from './components'
 
-import { KEYS } from '@/constants/keys'
+import { KEYS } from '@/constants'
 
 const Keypad = ({ operations }) => {
   const execute = action => {

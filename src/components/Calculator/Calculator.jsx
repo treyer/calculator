@@ -11,9 +11,10 @@ import {
   CalculatorMain,
   CalculatorWrapper,
 } from './components'
-import { brackets, operators } from '@/constants/types'
-import { convertInputToString } from '@/helpers/convertInputToString'
+
 import { updateUserInput } from '@/store/actions/data'
+import { brackets, operators } from '@/constants'
+import { convertInputToString } from '@/helpers/convertInputToString'
 import {
   handleAddBracket,
   handleAddDigit,
@@ -22,8 +23,6 @@ import {
   handleClearAll,
   handleClearEntry,
   isInputComplete,
-  isNumberInputComplete,
-  receiveConstants,
 } from '@/helpers/handleKeysInput'
 import { calculateExpression } from '@/helpers/handleCalculation'
 

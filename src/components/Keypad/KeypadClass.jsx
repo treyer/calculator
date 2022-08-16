@@ -4,7 +4,7 @@ import KeyClass from '@/components/Key/KeyClass'
 import FlexClass from '@/components/Flex/FlexClass'
 import { Grid } from './components'
 
-import { KEYS } from '@/constants/keys'
+import { KEYS } from '@/constants'
 
 export class KeypadClass extends React.Component {
   render() {
