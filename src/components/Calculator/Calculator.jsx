@@ -12,7 +12,10 @@ import {
   CalculatorWrapper,
 } from './components'
 
-import { updateUserInput } from '@/store/actions/data'
+import {
+  addHistoryItem,
+  updateUserInput,
+} from '@/store/actions/data'
 import { brackets, operators } from '@/constants'
 import { convertInputToString } from '@/helpers/convertInputToString'
 import {
@@ -31,9 +34,15 @@ export const Calculator = () => {
   const { expressionType } = useSelector(
     state => state.settings,
   )
+  const { historyArr } = useSelector(state => state.data)
   const dispatch = useDispatch()
+
   const updateInput = newInput => {
     dispatch(updateUserInput(newInput))
+  }
+
+  const addExpressionToHistory = expr => {
+    dispatch(addHistoryItem(expr))
   }
 
   const operations = {
@@ -52,11 +61,14 @@ export const Calculator = () => {
       ) {
         if (isInputComplete(userInput)) {
           try {
-            const res = calculateExpression(userInput)
+            const { res, expression } = calculateExpression(
+              userInput,
+            )
             updateInput([
-              { number: res },
+              { number: String(res) },
               { operator: operators[operator] },
             ])
+            addExpressionToHistory(expression)
           } catch (err) {
             updateInput([{ error: err.message }])
           }
@@ -93,8 +105,11 @@ export const Calculator = () => {
     calculate: (payload, setIsError) => {
       if (isInputComplete(userInput)) {
         try {
-          const res = calculateExpression(userInput)
-          updateInput([{ number: res }])
+          const { res, expression } = calculateExpression(
+            userInput,
+          )
+          updateInput([{ number: String(res) }])
+          addExpressionToHistory(expression)
         } catch (err) {
           updateInput([{ error: err.message }])
         }
@@ -118,7 +133,7 @@ export const Calculator = () => {
                 <Keypad operations={operations} />
               </Flex>
             </CalculatorMain>
-            <History />
+            <History operationsHistory={historyArr} />
           </Flex>
         </CalculatorInner>
       </Flex>

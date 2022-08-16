@@ -9,6 +9,7 @@ import { CALCULATIONS_PRECISION } from '@/constants'
 
 export const calculateExpression = userInput => {
   let expr = prepareInputForCalculation(userInput)
+  const resExpr = expr
   expr = expr.replace(/\s/g, '') // delete spaces
 
   if (
@@ -18,14 +19,17 @@ export const calculateExpression = userInput => {
     // no parentheses
     const res = +calculateSimpleExpression(expr)
     if (isNaN(res)) throw new Error('Calculation Error')
-    return trimNumber(
-      String(Number(res).toFixed(CALCULATIONS_PRECISION)),
-    )
+    return {
+      res: trimNumber(
+        String(Number(res).toFixed(CALCULATIONS_PRECISION)),
+      ),
+      expression: resExpr,
+    }
   } else {
     // with parentheses
     if (!isBracketsCorrect(expr)) {
       // check if expression has correct brackets
-      throw new Error('Error: Brackets must be paired')
+      throw new Error('Error: Incorrect brackets')
     } else {
       while (expr.indexOf('(') !== -1) {
         let begin, end
@@ -113,11 +117,14 @@ export const calculateExpression = userInput => {
       }
 
       if (isNaN(+expr)) throw new Error('Calculation Error')
-      return trimNumber(
-        String(
-          Number(expr).toFixed(CALCULATIONS_PRECISION),
+      return {
+        res: trimNumber(
+          String(
+            Number(expr).toFixed(CALCULATIONS_PRECISION),
+          ),
         ),
-      )
+        expression: resExpr,
+      }
     }
   }
 }

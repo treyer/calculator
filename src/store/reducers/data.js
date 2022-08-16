@@ -22,9 +22,7 @@ export default handleActions(
     [addHistoryItem]: (state, action) => {
       return {
         ...state,
-        historyArr: [...state.historyArr].push(
-          action.payload,
-        ),
+        historyArr: [action.payload, ...state.historyArr],
       }
     },
     [updateUserInput]: (state, action) => {

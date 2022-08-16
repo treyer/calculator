@@ -52,6 +52,8 @@ export const ContentBox = styled.div`
 `
 
 export const OperationHistory = styled.h5`
+  margin-bottom: 20px;
+
   font-weight: ${({ theme }) => theme.fontWeights[3]};
   font-size: 30px;
 `

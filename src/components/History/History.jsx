@@ -7,30 +7,16 @@ import {
   OperationHistory,
 } from './components'
 
-export const History = () => {
+export const History = ({ operationsHistory }) => {
   return (
     <HistoryWrapper>
       <Heading>History</Heading>
       <ContentBox>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
-        <OperationHistory>56 * 23</OperationHistory>
+        {operationsHistory.map((operation, index) => (
+          <OperationHistory key={index}>
+            {operation}
+          </OperationHistory>
+        ))}
       </ContentBox>
     </HistoryWrapper>
   )
