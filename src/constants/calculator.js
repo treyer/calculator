@@ -1,0 +1,1 @@
+export const CALCULATIONS_PRECISION = 3

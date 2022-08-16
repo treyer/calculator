@@ -1,7 +1,7 @@
 export const operators = {
   multiply: '*',
   subtract: '-',
-  divide: '\\',
+  divide: '/',
   add: '+',
 }
 

@@ -64,7 +64,7 @@ export const KEYS = [
   },
   {
     id: '10',
-    key: '\\',
+    key: '/',
     keyName: 'divide',
     type: 'addOperator',
     payload: 'divide',

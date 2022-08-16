@@ -1,4 +1,4 @@
-const receiveConstants = inputArr => {
+export const receiveConstants = inputArr => {
   const lastElement = inputArr.slice().pop()
   return {
     lastElementKey: Object.keys(lastElement)[0],
@@ -25,7 +25,7 @@ const countBrackets = inputArr => {
   )
 }
 
-const isNumberInputComplete = number => {
+export const isNumberInputComplete = number => {
   if (number === '-' || number === '-.' || number === '.') {
     return false
   }
@@ -38,7 +38,29 @@ const isNumberInputComplete = number => {
   return true
 }
 
-const trimNumber = number => {
+export const isInputComplete = userInput => {
+  const {
+    lastElementKey,
+    lastElementValue,
+  } = receiveConstants(userInput)
+
+  if (userInput.length < 3) return false
+  if (lastElementKey === 'number') {
+    if (!isNumberInputComplete(lastElementValue)) {
+      return false
+    }
+  }
+  if (lastElementKey === 'operator') return false
+  if (
+    lastElementKey === 'bracket' &&
+    lastElementValue === '('
+  ) {
+    return false
+  }
+  return true
+}
+
+export const trimNumber = number => {
   if (number.includes('.')) {
     number = number.replace(/0*$/, '')
     if (number.split('.')[1].length === 0) {
@@ -57,6 +79,10 @@ export const handleAddDigit = (digitInput, inputArr) => {
     lastElementValue,
     inputArrCopy,
   } = receiveConstants(inputArr)
+
+  if (lastElementKey === 'error') {
+    return [{ number: digitInput }]
+  }
 
   if (lastElementKey !== 'number') {
     inputArrCopy.push({ number: digitInput })
@@ -89,6 +115,10 @@ export const handleAddDot = inputArr => {
     inputArrCopy,
   } = receiveConstants(inputArr)
 
+  if (lastElementKey === 'error') {
+    return [{ number: '.' }]
+  }
+
   if (lastElementKey !== 'number') {
     inputArrCopy.push({ number: '.' })
     return inputArrCopy
@@ -113,6 +143,11 @@ export const handleAddOperator = (
     lastElementValue,
     inputArrCopy,
   } = receiveConstants(inputArr)
+
+  if (lastElementKey === 'error') {
+    if (newOperator === '-') return [{ number: '-' }]
+    return null
+  }
 
   if (inputArr.length === 1) {
     if (lastElementKey === 'number') {
@@ -152,6 +187,9 @@ export const handleAddOperator = (
         inputArrCopy.push({ number: '-' })
         return inputArrCopy
       }
+      if (lastElementValue === newOperator) {
+        return null
+      }
       inputArrCopy.pop()
       inputArrCopy.push({ operator: newOperator })
       return inputArrCopy
@@ -180,6 +218,11 @@ export const handleAddBracket = (
     lastElementValue,
     inputArrCopy,
   } = receiveConstants(inputArr)
+
+  if (lastElementKey === 'error') {
+    if (inputBracket === '(') return [{ bracket: '(' }]
+    return null
+  }
 
   if (inputArr.length === 1) {
     if (lastElementKey === 'number') {

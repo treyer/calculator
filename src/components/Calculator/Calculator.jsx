@@ -21,7 +21,11 @@ import {
   handleAddOperator,
   handleClearAll,
   handleClearEntry,
+  isInputComplete,
+  isNumberInputComplete,
+  receiveConstants,
 } from '@/helpers/handleKeysInput'
+import { calculateExpression } from '@/helpers/handleCalculation'
 
 export const Calculator = () => {
   const { userInput } = useSelector(state => state.data)
@@ -36,37 +40,36 @@ export const Calculator = () => {
   const operations = {
     addDigit: (digit, setIsError) => {
       const res = handleAddDigit(digit, userInput)
-      if (res) {
-        updateInput(res)
-      } else {
-        setIsError(true)
-      }
+      res ? updateInput(res) : setIsError(true)
     },
     addDot: (payload, setIsError) => {
       const res = handleAddDot(userInput)
-      if (res) {
-        updateInput(res)
-      } else {
-        setIsError(true)
-      }
+      res ? updateInput(res) : setIsError(true)
     },
     addOperator: (operator, setIsError) => {
       if (
         expressionType === 'simple' &&
         userInput.length === 3
       ) {
-        // TODO: calculate and add operator
-        console.log('// TODO: calculate and add operator')
+        if (isInputComplete(userInput)) {
+          try {
+            const res = calculateExpression(userInput)
+            updateInput([
+              { number: res },
+              { operator: operators[operator] },
+            ])
+          } catch (err) {
+            updateInput([{ error: err.message }])
+          }
+        } else {
+          setIsError(true)
+        }
       } else {
         const res = handleAddOperator(
           operators[operator],
           userInput,
         )
-        if (res) {
-          updateInput(res)
-        } else {
-          setIsError(true)
-        }
+        res ? updateInput(res) : setIsError(true)
       }
     },
     addBracket: (bracket, setIsError) => {
@@ -75,11 +78,7 @@ export const Calculator = () => {
           brackets[bracket],
           userInput,
         )
-        if (res) {
-          updateInput(res)
-        } else {
-          setIsError(true)
-        }
+        res ? updateInput(res) : setIsError(true)
       } else {
         setIsError(true)
       }
@@ -92,7 +91,18 @@ export const Calculator = () => {
       const res = handleClearEntry(userInput)
       if (res) updateInput(res)
     },
-    calculate: () => {},
+    calculate: (payload, setIsError) => {
+      if (isInputComplete(userInput)) {
+        try {
+          const res = calculateExpression(userInput)
+          updateInput([{ number: res }])
+        } catch (err) {
+          updateInput([{ error: err.message }])
+        }
+      } else {
+        setIsError(true)
+      }
+    },
   }
 
   return (
