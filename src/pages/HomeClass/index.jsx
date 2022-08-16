@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { CalculatorClass } from '@/components/Calculator'
 import { Card } from '@/pages/Home/components'
 
@@ -10,7 +11,9 @@ export default class HomeClass extends React.Component {
     return (
       <PageLayout>
         <Card>
-          <CalculatorClass />
+          <ErrorBoundary>
+            <CalculatorClass />
+          </ErrorBoundary>
         </Card>
       </PageLayout>
     )

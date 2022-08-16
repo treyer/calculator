@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { PageLayout } from '@/layouts/PageLayout'
 import {
   Card,
@@ -17,19 +18,21 @@ export default class SettingsClass extends React.Component {
     return (
       <PageLayout>
         <Card>
-          <SettingsBox>
-            <FlexClass
-              direction="column"
-              justify="start"
-              align="start">
-              <Heading>Settings</Heading>
-              <InputBox>
-                <InputLabel>Switch theme</InputLabel>
-                <ThemeSelectClass />
-                <ResetButtonClass />
-              </InputBox>
-            </FlexClass>
-          </SettingsBox>
+          <ErrorBoundary>
+            <SettingsBox>
+              <FlexClass
+                direction="column"
+                justify="start"
+                align="start">
+                <Heading>Settings</Heading>
+                <InputBox>
+                  <InputLabel>Switch theme</InputLabel>
+                  <ThemeSelectClass />
+                  <ResetButtonClass />
+                </InputBox>
+              </FlexClass>
+            </SettingsBox>
+          </ErrorBoundary>
         </Card>
       </PageLayout>
     )

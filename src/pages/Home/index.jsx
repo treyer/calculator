@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { Calculator } from '@/components/Calculator'
 import { Card } from './components'
 
@@ -9,7 +10,9 @@ export default () => {
   return (
     <PageLayout>
       <Card>
-        <Calculator />
+        <ErrorBoundary>
+          <Calculator />
+        </ErrorBoundary>
       </Card>
     </PageLayout>
   )
