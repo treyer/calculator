@@ -107,6 +107,33 @@ export const handleAddDigit = (digitInput, inputArr) => {
   }
 }
 
+// return null if the constant cannot be added or new inputArr
+export const handleAddConstant = (constant, inputArr) => {
+  const {
+    lastElementKey,
+    lastElementValue,
+    inputArrCopy,
+  } = receiveConstants(inputArr)
+
+  if (lastElementKey === 'error') {
+    return [{ number: constant }]
+  }
+  if (lastElementKey === 'number') {
+    inputArrCopy.pop()
+    inputArrCopy.push({ number: constant })
+    return inputArrCopy
+  }
+  if (lastElementKey === 'bracket') {
+    if (lastElementValue === ')') return null
+    inputArrCopy.push({ number: constant })
+    return inputArrCopy
+  }
+  if (lastElementKey === 'operator') {
+    inputArrCopy.push({ number: constant })
+    return inputArrCopy
+  }
+}
+
 // return null if the Dot cannot be added or new inputArr
 export const handleAddDot = inputArr => {
   const {
@@ -297,6 +324,29 @@ export const handleAddBracket = (
       }
     }
   }
+}
+
+// return null if sign change impossible or new inputArr
+export const handleChangeSign = inputArr => {
+  const {
+    lastElementKey,
+    lastElementValue,
+    inputArrCopy,
+  } = receiveConstants(inputArr)
+
+  if (lastElementKey === 'number') {
+    if (lastElementValue[0] === '-') {
+      inputArrCopy.pop()
+      inputArrCopy.push({
+        number: lastElementValue.slice(1),
+      })
+      return inputArrCopy
+    }
+    inputArrCopy.pop()
+    inputArrCopy.push({ number: `-${lastElementValue}` })
+    return inputArrCopy
+  }
+  return null
 }
 
 // return null if current inputArr is set to initial value

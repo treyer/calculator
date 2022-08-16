@@ -266,7 +266,7 @@ export const KEYS_ADVANCED = [
     key: 'π',
     keyName: 'Pi',
     type: 'addConstant',
-    payload: 'Pi',
+    payload: 'pi',
   },
   {
     id: '19',

@@ -1,3 +1,5 @@
+import { PI, GOLDEN_RATIO } from '@/constants/calculator'
+
 export const operators = {
   multiply: '*',
   subtract: '-',
@@ -9,4 +11,9 @@ export const operators = {
 export const brackets = {
   open: '(',
   close: ')',
+}
+
+export const numberConstants = {
+  pi: PI,
+  goldenRatio: GOLDEN_RATIO,
 }

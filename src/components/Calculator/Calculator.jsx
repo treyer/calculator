@@ -16,13 +16,19 @@ import {
   addHistoryItem,
   updateUserInput,
 } from '@/store/actions/data'
-import { brackets, operators } from '@/constants'
+import {
+  brackets,
+  numberConstants,
+  operators,
+} from '@/constants'
 import { convertInputToString } from '@/helpers/convertInputToString'
 import {
   handleAddBracket,
+  handleAddConstant,
   handleAddDigit,
   handleAddDot,
   handleAddOperator,
+  handleChangeSign,
   handleClearAll,
   handleClearEntry,
   isInputComplete,
@@ -50,7 +56,13 @@ export const Calculator = () => {
       const res = handleAddDigit(digit, userInput)
       res ? updateInput(res) : setIsError(true)
     },
-    addConstant: () => {},
+    addConstant: (constantType, setIsError) => {
+      const res = handleAddConstant(
+        numberConstants[constantType],
+        userInput,
+      )
+      res ? updateInput(res) : setIsError(true)
+    },
     addDot: (payload, setIsError) => {
       const res = handleAddDot(userInput)
       res ? updateInput(res) : setIsError(true)
@@ -95,7 +107,10 @@ export const Calculator = () => {
         setIsError(true)
       }
     },
-    changeSign: () => {},
+    changeSign: (payload, setIsError) => {
+      const res = handleChangeSign(userInput)
+      res ? updateInput(res) : setIsError(true)
+    },
     clearAll: () => {
       const res = handleClearAll(userInput)
       if (res) updateInput(res)
