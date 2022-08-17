@@ -11,7 +11,7 @@ import {
 } from '@/pages/Settings/components'
 import FlexClass from '@/components/Flex/FlexClass'
 import ThemeSelectClass from '@/components/ThemeSelect/ThemeSelectClass'
-import { ResetButtonClass } from '@/components/ResetButton'
+import ResetButtonClass from '@/components/ResetButton/ResetButtonClass'
 
 export default class SettingsClass extends React.Component {
   render() {
