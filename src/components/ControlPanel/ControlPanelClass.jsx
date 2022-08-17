@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import FlexClass from '@/components/Flex/FlexClass'
 import SwitchPanelClass from '@/components/SwitchPanel/SwitchPanelClass'
@@ -22,10 +24,14 @@ class ControlPanelClass extends React.Component {
   }
 
   ChangeExpressionType = () => {
+    if (this.props.expressionType === 'complex')
+      this.props.clearAll()
     this.props.changeExpressionType()
   }
 
   ChangeCalculatorType = () => {
+    if (this.props.calculatorType === 'advanced')
+      this.props.clearAll()
     this.props.changeCalculatorType()
   }
 
@@ -55,6 +61,10 @@ class ControlPanelClass extends React.Component {
       </PanelWrapper>
     )
   }
+}
+
+ControlPanelClass.propTypes = {
+  clearAll: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({

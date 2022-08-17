@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ErrorBoundary } from '@/components/ErrorBoundary'
-import { CalculatorClass } from '@/components/Calculator'
+import CalculatorClass from '@/components/Calculator/CalculatorClass'
 import { Card } from '@/pages/Home/components'
 
 import { PageLayout } from '@/layouts/PageLayout'

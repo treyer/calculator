@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import {
   ContentBox,
   Heading,
@@ -7,7 +9,7 @@ import {
   OperationHistory,
 } from './components'
 
-export const History = ({ operationsHistory }) => {
+function History({ operationsHistory }) {
   return (
     <HistoryWrapper>
       <Heading>History</Heading>
@@ -21,3 +23,10 @@ export const History = ({ operationsHistory }) => {
     </HistoryWrapper>
   )
 }
+
+History.propTypes = {
+  operationsHistory: PropTypes.arrayOf(PropTypes.string)
+    .isRequired,
+}
+
+export default History

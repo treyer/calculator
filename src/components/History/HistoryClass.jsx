@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import {
   ContentBox,
   Heading,
@@ -7,33 +9,28 @@ import {
   OperationHistory,
 } from './components'
 
-export class HistoryClass extends React.Component {
+class HistoryClass extends React.Component {
   render() {
     return (
       <HistoryWrapper>
         <Heading>History</Heading>
         <ContentBox>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
-          <OperationHistory>56 * 23</OperationHistory>
+          {this.props.operationsHistory.map(
+            (operation, index) => (
+              <OperationHistory key={index}>
+                {operation}
+              </OperationHistory>
+            ),
+          )}
         </ContentBox>
       </HistoryWrapper>
     )
   }
 }
+
+HistoryClass.propTypes = {
+  operationsHistory: PropTypes.arrayOf(PropTypes.string)
+    .isRequired,
+}
+
+export default HistoryClass

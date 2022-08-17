@@ -35,9 +35,7 @@ class PreHeaderButton extends React.Component {
           this.handleAppTypeChange(this.props.btnType)
         }>
         <FlexClass justify="center">
-          <ButtonText>
-            {this.props.children} {'class'}
-          </ButtonText>
+          <ButtonText>{this.props.children}</ButtonText>
         </FlexClass>
       </PreHeaderBtn>
     )

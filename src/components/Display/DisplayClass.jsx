@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import FlexClass from '@/components/Flex/FlexClass'
 import {
   Output,
@@ -7,14 +9,14 @@ import {
   Wrapper,
 } from './components'
 
-export class DisplayClass extends React.Component {
+class DisplayClass extends React.Component {
   render() {
     return (
       <Wrapper>
         <FlexClass>
           <OutputWrapper>
             <FlexClass justify="end">
-              <Output>233.332</Output>
+              <Output>{this.props.output}</Output>
             </FlexClass>
           </OutputWrapper>
         </FlexClass>
@@ -22,3 +24,9 @@ export class DisplayClass extends React.Component {
     )
   }
 }
+
+DisplayClass.propTypes = {
+  output: PropTypes.string.isRequired,
+}
+
+export default DisplayClass
