@@ -7,6 +7,7 @@ import {
   Heading,
   InputBox,
   InputLabel,
+  Main,
   SettingsBox,
 } from './components'
 import Flex from '@/components/Flex/Flex'
@@ -15,24 +16,26 @@ import { ResetButton } from '@/components/ResetButton'
 
 export default () => {
   return (
-    <PageLayout>
-      <Card>
-        <ErrorBoundary>
-          <SettingsBox>
-            <Flex
-              direction="column"
-              justify="start"
-              align="start">
-              <Heading>Settings</Heading>
-              <InputBox>
-                <InputLabel>Switch theme</InputLabel>
-                <ThemeSelect />
-                <ResetButton />
-              </InputBox>
-            </Flex>
-          </SettingsBox>
-        </ErrorBoundary>
-      </Card>
-    </PageLayout>
+    <Main>
+      <PageLayout>
+        <Card>
+          <ErrorBoundary>
+            <SettingsBox>
+              <Flex
+                direction="column"
+                justify="start"
+                align="start">
+                <Heading>Settings</Heading>
+                <InputBox>
+                  <InputLabel>Switch theme</InputLabel>
+                  <ThemeSelect />
+                  <ResetButton />
+                </InputBox>
+              </Flex>
+            </SettingsBox>
+          </ErrorBoundary>
+        </Card>
+      </PageLayout>
+    </Main>
   )
 }

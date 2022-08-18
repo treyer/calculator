@@ -10,6 +10,7 @@ import {
   CalculatorInner,
   CalculatorMain,
   CalculatorWrapper,
+  KeypadWrapper,
 } from './components'
 
 import {
@@ -147,7 +148,9 @@ export const Calculator = () => {
                 <Display
                   output={convertInputToString(userInput)}
                 />
-                <Keypad operations={operations} />
+                <KeypadWrapper>
+                  <Keypad operations={operations} />
+                </KeypadWrapper>
               </Flex>
             </CalculatorMain>
             <History operationsHistory={historyArr} />

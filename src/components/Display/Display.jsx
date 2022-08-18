@@ -14,9 +14,7 @@ const Display = ({ output }) => {
     <Wrapper>
       <Flex>
         <OutputWrapper>
-          <Flex justify="end">
-            <Output id="output">{output}</Output>
-          </Flex>
+          <Output id="output">{output}</Output>
         </OutputWrapper>
       </Flex>
     </Wrapper>

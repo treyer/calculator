@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
     ${({ theme }) => theme.colors.borderButton};
 `
 export const OutputWrapper = styled.div`
+  position: relative;
+
   width: 100%;
   height: 60px;
   margin: 0 50px;
@@ -21,6 +23,15 @@ export const OutputWrapper = styled.div`
 `
 
 export const Output = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  height: 60px;
   margin: 0 44px;
+
   font-size: 48px;
+  line-height: 60px;
+
+  white-space: nowrap;
 `

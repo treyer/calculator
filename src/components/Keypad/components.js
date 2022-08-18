@@ -8,7 +8,7 @@ export const Grid = styled.div`
   width: 100%;
   height: calc(100vh - 340px);
   max-height: 1000px;
-  padding: 0 94px 0 0;
+  margin: 0 34px;
 
   &.advanced {
     grid-template-columns: repeat(6, 1fr);

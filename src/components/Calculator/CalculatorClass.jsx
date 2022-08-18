@@ -10,6 +10,7 @@ import {
   CalculatorInner,
   CalculatorMain,
   CalculatorWrapper,
+  KeypadWrapper,
 } from './components'
 
 import {
@@ -158,9 +159,11 @@ class CalculatorClass extends React.Component {
                       this.props.userInput,
                     )}
                   />
-                  <KeypadClass
-                    operations={this.operations}
-                  />
+                  <KeypadWrapper>
+                    <KeypadClass
+                      operations={this.operations}
+                    />
+                  </KeypadWrapper>
                 </FlexClass>
               </CalculatorMain>
               <HistoryClass

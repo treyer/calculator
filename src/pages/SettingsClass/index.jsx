@@ -7,6 +7,7 @@ import {
   Heading,
   InputBox,
   InputLabel,
+  Main,
   SettingsBox,
 } from '@/pages/Settings/components'
 import FlexClass from '@/components/Flex/FlexClass'
@@ -16,25 +17,27 @@ import ResetButtonClass from '@/components/ResetButton/ResetButtonClass'
 export default class SettingsClass extends React.Component {
   render() {
     return (
-      <PageLayout>
-        <Card>
-          <ErrorBoundary>
-            <SettingsBox>
-              <FlexClass
-                direction="column"
-                justify="start"
-                align="start">
-                <Heading>Settings</Heading>
-                <InputBox>
-                  <InputLabel>Switch theme</InputLabel>
-                  <ThemeSelectClass />
-                  <ResetButtonClass />
-                </InputBox>
-              </FlexClass>
-            </SettingsBox>
-          </ErrorBoundary>
-        </Card>
-      </PageLayout>
+      <Main>
+        <PageLayout>
+          <Card>
+            <ErrorBoundary>
+              <SettingsBox>
+                <FlexClass
+                  direction="column"
+                  justify="start"
+                  align="start">
+                  <Heading>Settings</Heading>
+                  <InputBox>
+                    <InputLabel>Switch theme</InputLabel>
+                    <ThemeSelectClass />
+                    <ResetButtonClass />
+                  </InputBox>
+                </FlexClass>
+              </SettingsBox>
+            </ErrorBoundary>
+          </Card>
+        </PageLayout>
+      </Main>
     )
   }
 }

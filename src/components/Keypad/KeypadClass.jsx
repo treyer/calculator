@@ -31,7 +31,7 @@ class KeypadClass extends React.Component {
         }>
         {this.props.calculatorType === 'basic' &&
           KEYS.map(key => (
-            <FlexClass key={key.id} justify="end">
+            <FlexClass key={key.id} justify="center">
               <KeyClass
                 title={key.keyName}
                 type={key.type}
@@ -43,7 +43,7 @@ class KeypadClass extends React.Component {
           ))}
         {this.props.calculatorType === 'advanced' &&
           KEYS_ADVANCED.map(key => (
-            <FlexClass key={key.id} justify="end">
+            <FlexClass key={key.id} justify="center">
               <KeyClass
                 title={key.keyName}
                 type={key.type}

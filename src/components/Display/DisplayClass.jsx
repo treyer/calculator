@@ -15,11 +15,7 @@ class DisplayClass extends React.Component {
       <Wrapper>
         <FlexClass>
           <OutputWrapper>
-            <FlexClass justify="end">
-              <Output id="output">
-                {this.props.output}
-              </Output>
-            </FlexClass>
+            <Output id="output">{this.props.output}</Output>
           </OutputWrapper>
         </FlexClass>
       </Wrapper>

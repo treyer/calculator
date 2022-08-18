@@ -26,7 +26,7 @@ const Keypad = ({ operations }) => {
         calculatorType === 'advanced' && 'advanced'
       }>
       {keysMap.map(key => (
-        <Flex key={key.id} justify="end">
+        <Flex key={key.id} justify="center">
           <Key
             title={key.keyName}
             type={key.type}
