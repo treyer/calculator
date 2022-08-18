@@ -42,7 +42,7 @@ function ControlPanel({ clearAll }) {
           callback={ChangeCalculatorType}
         />
         <SwitchPanel
-          label="Expressions type:"
+          label="Expressions mode:"
           textBefore="simple"
           textAfter="complex"
           isChecked={expressionType === 'complex'}

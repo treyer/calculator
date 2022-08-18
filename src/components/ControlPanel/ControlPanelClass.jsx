@@ -49,7 +49,7 @@ class ControlPanelClass extends React.Component {
             callback={this.ChangeCalculatorType}
           />
           <SwitchPanelClass
-            label="Expressions type:"
+            label="Expressions mode:"
             textBefore="simple"
             textAfter="complex"
             isChecked={
