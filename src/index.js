@@ -6,9 +6,9 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import { MainLayout } from './layouts/MainLayout'
+import { MainLayout } from '@layouts/MainLayout'
 
-import { store } from '@/store'
+import { store } from '@store'
 import GlobalStyles from './globalStyles'
 
 ReactDOM.render(

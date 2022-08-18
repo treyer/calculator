@@ -1,14 +1,15 @@
 import React from 'react'
+
 import { connect } from 'react-redux'
 
+import FlexClass from '@/components/Flex/FlexClass'
 import {
   OptionsWrapper,
   Select,
   SelectOption,
 } from './components'
-import FlexClass from '@/components/Flex/FlexClass'
 
-import { changeTheme } from '@/store/actions/settings'
+import { changeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@/helpers'
 
 class ThemeSelectClass extends React.Component {

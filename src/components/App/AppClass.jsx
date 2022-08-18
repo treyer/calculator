@@ -4,13 +4,13 @@ import { Switch, Route } from 'react-router-dom'
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,
-} from '@/constants'
+} from '@constants'
 
-import Loader from '@/components/Loader'
+import Loader from '@components/Loader'
 
-const HomePage = lazy(() => import('@/pages/HomeClass'))
+const HomePage = lazy(() => import('@pages/HomeClass'))
 const SettingsPage = lazy(() =>
-  import('@/pages/SettingsClass'),
+  import('@pages/SettingsClass'),
 )
 
 export class ApplicationClass extends React.Component {

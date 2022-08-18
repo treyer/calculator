@@ -1,14 +1,15 @@
 import React, { useRef, useState } from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
 
+import Flex from '@components/Flex/Flex'
 import {
   OptionsWrapper,
   Select,
   SelectOption,
 } from './components'
-import Flex from '@/components/Flex/Flex'
 
-import { changeTheme } from '@/store/actions/settings'
+import { changeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@/helpers'
 import { useClickOutside } from '@/hooks/useClickOutside'
 

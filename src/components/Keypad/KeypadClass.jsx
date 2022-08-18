@@ -3,8 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import KeyClass from '@/components/Key/KeyClass'
-import FlexClass from '@/components/Flex/FlexClass'
+import KeyClass from '@components/Key/KeyClass'
+import FlexClass from '@components/Flex/FlexClass'
 import { Grid } from './components'
 
 import { KEYS, KEYS_ADVANCED } from '@/constants'

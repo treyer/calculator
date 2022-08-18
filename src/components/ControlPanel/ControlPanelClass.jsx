@@ -3,13 +3,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import FlexClass from '@/components/Flex/FlexClass'
-import SwitchPanelClass from '@/components/SwitchPanel/SwitchPanelClass'
+import FlexClass from '@components/Flex/FlexClass'
+import SwitchPanelClass from '@components/SwitchPanel/SwitchPanelClass'
 
 import {
   changeCalculatorType,
   changeExpressionType,
-} from '@/store/actions/settings'
+} from '@store/actions/settings'
 import { PanelWrapper } from './components'
 
 class ControlPanelClass extends React.Component {

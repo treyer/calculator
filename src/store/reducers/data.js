@@ -4,7 +4,7 @@ import {
   addHistoryItem,
   clearHistory,
   updateUserInput,
-} from '../actions/data'
+} from '@store/actions/data'
 
 const INITIAL_STATE = {
   historyArr: [],

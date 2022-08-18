@@ -1,10 +1,11 @@
 import { handleActions } from 'redux-actions'
+
 import {
   changeCalculatorType,
   changeComponentsType,
   changeExpressionType,
   changeTheme,
-} from '@/store/actions/settings'
+} from '@store/actions/settings'
 
 const INITIAL_STATE = {
   appType: 'functional', // 'functional' or 'class'

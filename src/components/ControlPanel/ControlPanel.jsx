@@ -3,13 +3,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Flex from '@/components/Flex/Flex'
-import SwitchPanel from '@/components/SwitchPanel/SwitchPanel'
+import Flex from '@components/Flex/Flex'
+import SwitchPanel from '@components/SwitchPanel/SwitchPanel'
 
 import {
   changeCalculatorType,
   changeExpressionType,
-} from '@/store/actions/settings'
+} from '@store/actions/settings'
 import { PanelWrapper } from './components'
 
 function ControlPanel({ clearAll }) {

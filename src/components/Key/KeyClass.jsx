@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FlexClass from '@/components/Flex/FlexClass'
+import FlexClass from '@components/Flex/FlexClass'
 import { KeyBody, KeyText } from './components'
 
 class KeyClass extends React.Component {

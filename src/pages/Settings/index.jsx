@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ErrorBoundary } from '@/components/ErrorBoundary'
-import { PageLayout } from '@/layouts/PageLayout'
+import { ErrorBoundary } from '@components/ErrorBoundary'
+import { PageLayout } from '@layouts/PageLayout'
 import {
   Card,
   Heading,
@@ -10,9 +10,9 @@ import {
   Main,
   SettingsBox,
 } from './components'
-import Flex from '@/components/Flex/Flex'
-import { ThemeSelect } from '@/components/ThemeSelect'
-import { ResetButton } from '@/components/ResetButton'
+import Flex from '@components/Flex/Flex'
+import { ThemeSelect } from '@components/ThemeSelect'
+import { ResetButton } from '@components/ResetButton'
 
 export default () => {
   return (

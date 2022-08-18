@@ -4,12 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,
-} from '@/constants'
+} from '@constants'
 
-import Loader from '@/components/Loader'
+import Loader from '@components/Loader'
 
-const HomePage = lazy(() => import('@/pages/Home'))
-const SettingsPage = lazy(() => import('@/pages/Settings'))
+const HomePage = lazy(() => import('@pages/Home'))
+const SettingsPage = lazy(() => import('@pages/Settings'))
 
 export const Application = () => (
   <Suspense fallback={<Loader />}>

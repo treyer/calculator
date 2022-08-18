@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Flex from '@/components/Flex/Flex'
-import Display from '@/components/Display/Display'
-import Keypad from '@/components/Keypad/Keypad'
-import History from '@/components/History/History'
-import ControlPanel from '@/components/ControlPanel/ControlPanel'
+import Flex from '@components/Flex/Flex'
+import Display from '@components/Display/Display'
+import Keypad from '@components/Keypad/Keypad'
+import History from '@components/History/History'
+import ControlPanel from '@components/ControlPanel/ControlPanel'
 import {
   CalculatorInner,
   CalculatorMain,
@@ -16,12 +16,12 @@ import {
 import {
   addHistoryItem,
   updateUserInput,
-} from '@/store/actions/data'
+} from '@store/actions/data'
 import {
   brackets,
   numberConstants,
   operators,
-} from '@/constants'
+} from '@constants'
 import { convertInputToString } from '@/helpers/convertInputToString'
 import {
   handleAddBracket,

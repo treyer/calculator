@@ -1,13 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import Flex from '@/components/Flex/Flex'
+import Flex from '@components/Flex/Flex'
 import { Button } from './components'
 
 import {
   clearHistory,
   updateUserInput,
-} from '@/store/actions/data'
+} from '@store/actions/data'
 
 export const ResetButton = () => {
   const dispatch = useDispatch()

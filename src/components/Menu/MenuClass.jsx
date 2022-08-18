@@ -1,12 +1,12 @@
 import React from 'react'
 
-import FlexClass from '../Flex/FlexClass'
+import FlexClass from '@components/Flex/FlexClass'
 import { NavigationLink } from './components'
 
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,
-} from '@/constants'
+} from '@constants'
 
 export class MenuClass extends React.Component {
   render() {

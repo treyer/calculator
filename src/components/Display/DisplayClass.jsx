@@ -2,7 +2,7 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import FlexClass from '@/components/Flex/FlexClass'
+import FlexClass from '@components/Flex/FlexClass'
 import {
   Output,
   OutputWrapper,

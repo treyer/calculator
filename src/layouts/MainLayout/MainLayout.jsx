@@ -1,16 +1,17 @@
 import React from 'react'
+
 import { useSelector } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
 import {
   PreHeader,
   PreHeaderClass,
-} from '@/components/PreHeader'
-import { Header, HeaderClass } from '@/components/Header'
+} from '@components/PreHeader'
+import { Header, HeaderClass } from '@components/Header'
 import {
   Application,
   ApplicationClass,
-} from '@/components/App'
+} from '@components/App'
 import { LayoutWrapper } from './components'
 
 import theme from '@/theme'

@@ -2,13 +2,13 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import FlexClass from '@/components/Flex/FlexClass'
+import FlexClass from '@components/Flex/FlexClass'
 import { Button } from './components'
 
 import {
   clearHistory,
   updateUserInput,
-} from '@/store/actions/data'
+} from '@store/actions/data'
 
 class ResetButtonClass extends React.Component {
   constructor(props) {

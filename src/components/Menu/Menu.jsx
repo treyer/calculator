@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Flex from '@/components/Flex/Flex'
+import Flex from '@components/Flex/Flex'
 import { NavigationLink } from './components'
 
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,
-} from '@/constants'
+} from '@constants'
 
 export const Menu = () => {
   return (
