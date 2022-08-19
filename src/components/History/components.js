@@ -51,9 +51,26 @@ export const ContentBox = styled.div`
   }
 `
 
-export const OperationHistory = styled.h5`
-  margin-bottom: 20px;
+export const ExpressionHistory = styled.h5`
+  margin-bottom: 10px;
+  padding: 5px;
 
   font-weight: ${({ theme }) => theme.fontWeights[3]};
   font-size: 30px;
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  &.error,
+  &.error:hover {
+    background-color: ${({ theme }) =>
+      theme.colors.bgButtonError};
+  }
+
+  &:hover,
+  &:active {
+    background-color: ${({ theme }) =>
+      theme.colors.bgButtonHover};
+  }
 `

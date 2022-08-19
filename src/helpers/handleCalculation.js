@@ -9,7 +9,7 @@ import { CALCULATIONS_PRECISION } from '@/constants'
 
 export const calculateExpression = userInput => {
   let expr = prepareInputForCalculation(userInput)
-  const resExpr = expr
+  const resExpr = userInput.slice()
   expr = expr.replace(/\s/g, '') // delete spaces
 
   if (
