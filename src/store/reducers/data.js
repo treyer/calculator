@@ -3,6 +3,7 @@ import { handleActions } from 'redux-actions'
 import {
   addHistoryItem,
   clearHistory,
+  removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
 
@@ -23,6 +24,14 @@ export default handleActions(
       return {
         ...state,
         historyArr: [action.payload, ...state.historyArr],
+      }
+    },
+    [removeHistoryItem]: (state, action) => {
+      return {
+        ...state,
+        historyArr: state.historyArr.filter(
+          (el, index) => index !== action.payload,
+        ),
       }
     },
     [updateUserInput]: (state, action) => {

@@ -3,6 +3,7 @@ const black = '#000000'
 const white = '#ffffff'
 const fontColorPrimary = black
 const fontColorSecondary = white
+const fontColorRemoveBtn = black
 const bgPrimary = white
 const bgButton = white
 const bgButtonHover = '#e0e0e0'
@@ -54,6 +55,7 @@ export default {
   colors: {
     fontColorPrimary,
     fontColorSecondary,
+    fontColorRemoveBtn,
     bgPrimary,
     bgButton,
     bgButtonHover,

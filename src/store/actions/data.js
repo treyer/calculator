@@ -6,6 +6,10 @@ export const addHistoryItem = createAction(
   'ADD_HISTORY_ITEM',
 )
 
+export const removeHistoryItem = createAction(
+  'REMOVE_HISTORY_ITEM',
+)
+
 export const updateUserInput = createAction(
   'UPDATE_USER_INPUT',
 )

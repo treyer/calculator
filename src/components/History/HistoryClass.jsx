@@ -8,9 +8,13 @@ import {
   Heading,
   HistoryWrapper,
   ExpressionHistory,
+  RemoveBtn,
 } from './components'
 import { convertInputToString } from '@/helpers/convertInputToString'
-import { updateUserInput } from '@store/actions/data'
+import {
+  removeHistoryItem,
+  updateUserInput,
+} from '@store/actions/data'
 
 class HistoryClass extends React.Component {
   constructor(props) {
@@ -20,6 +24,9 @@ class HistoryClass extends React.Component {
     }
     this.errorItemIndex = -1
     this.handleSetHistoryExprAsCurrent = this.handleSetHistoryExprAsCurrent.bind(
+      this,
+    )
+    this.handleRemoveHistoryExpr = this.handleRemoveHistoryExpr.bind(
       this,
     )
   }
@@ -49,6 +56,11 @@ class HistoryClass extends React.Component {
     }
   }
 
+  handleRemoveHistoryExpr = (event, index) => {
+    event.stopPropagation()
+    this.props.removeHistoryItem(index)
+  }
+
   render() {
     return (
       <HistoryWrapper>
@@ -70,6 +82,15 @@ class HistoryClass extends React.Component {
                   )
                 }>
                 {convertInputToString(item)}
+                <RemoveBtn
+                  onClick={event => {
+                    this.handleRemoveHistoryExpr(
+                      event,
+                      index,
+                    )
+                  }}>
+                  ✖
+                </RemoveBtn>
               </ExpressionHistory>
             ),
           )}
@@ -91,6 +112,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = () => ({
   updateUserInput,
+  removeHistoryItem,
 })
 
 export default connect(

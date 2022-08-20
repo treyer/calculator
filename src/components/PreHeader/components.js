@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 import theme from '@/theme'
 
-export const PreHeaderWrapper = styled.header`
+export const PreHeaderWrapper = styled.div`
   width: 100%;
   height: 30px;
+  min-width: 1150px;
 
   background-color: ${({ theme }) =>
     theme.colors.bgHeaderMain};

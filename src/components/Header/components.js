@@ -4,6 +4,7 @@ import theme from '@/theme'
 
 export const HeaderWrapper = styled.header`
   height: 120px;
+  min-width: 1150px;
 
   background-color: ${({ theme }) =>
     theme.colors.bgHeaderMain};

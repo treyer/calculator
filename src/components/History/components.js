@@ -52,6 +52,8 @@ export const ContentBox = styled.div`
 `
 
 export const ExpressionHistory = styled.h5`
+  position: relative;
+
   margin-bottom: 10px;
   padding: 5px;
 
@@ -72,5 +74,21 @@ export const ExpressionHistory = styled.h5`
   &:active {
     background-color: ${({ theme }) =>
       theme.colors.bgButtonHover};
+  }
+`
+
+export const RemoveBtn = styled.div`
+  position: absolute;
+  top: 3px;
+  right: 3px;
+
+  font-size: 15px;
+  line-height: 15px;
+
+  color: ${({ theme }) => theme.colors.fontColorRemoveBtn};
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
   }
 `

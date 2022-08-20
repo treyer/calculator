@@ -8,10 +8,14 @@ import {
   ExpressionHistory,
   Heading,
   HistoryWrapper,
+  RemoveBtn,
 } from './components'
 
 import { convertInputToString } from '@/helpers/convertInputToString'
-import { updateUserInput } from '@store/actions/data'
+import {
+  removeHistoryItem,
+  updateUserInput,
+} from '@store/actions/data'
 
 function History({ operationsHistory }) {
   const dispatch = useDispatch()
@@ -40,6 +44,11 @@ function History({ operationsHistory }) {
     }
   }
 
+  const handleRemoveHistoryExpr = (event, index) => {
+    event.stopPropagation()
+    dispatch(removeHistoryItem(index))
+  }
+
   useEffect(() => {
     if (isError === true) {
       setTimeout(() => {
@@ -65,6 +74,12 @@ function History({ operationsHistory }) {
               handleSetHistoryExprAsCurrent(item, index)
             }>
             {convertInputToString(item)}
+            <RemoveBtn
+              onClick={event => {
+                handleRemoveHistoryExpr(event, index)
+              }}>
+              ✖
+            </RemoveBtn>
           </ExpressionHistory>
         ))}
       </ContentBox>
