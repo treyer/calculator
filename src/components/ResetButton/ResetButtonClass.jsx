@@ -27,7 +27,7 @@ class ResetButtonClass extends React.Component {
     return (
       <Button
         onClick={this.handleClearHistory}
-        data-cy="clear-history-button">
+        data-cy="clear-history-button-class">
         <FlexClass> Clear All History</FlexClass>
       </Button>
     )

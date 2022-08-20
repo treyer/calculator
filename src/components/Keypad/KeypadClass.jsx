@@ -29,7 +29,7 @@ class KeypadClass extends React.Component {
           this.props.calculatorType === 'advanced' &&
           'advanced'
         }
-        data-cy="keypad">
+        data-cy="keypad-class">
         {this.props.calculatorType === 'basic' &&
           KEYS.map(key => (
             <FlexClass key={key.id} justify="center">

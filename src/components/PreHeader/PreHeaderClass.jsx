@@ -7,7 +7,7 @@ import { PreHeaderWrapper } from './components'
 export class PreHeaderClass extends React.Component {
   render() {
     return (
-      <PreHeaderWrapper data-cy="pre-header">
+      <PreHeaderWrapper data-cy="pre-header-class">
         <FlexClass>
           <PreHeaderButtonClass btnType="functional">
             Functional components + hooks implementation

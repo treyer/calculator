@@ -75,7 +75,7 @@ class ThemeSelectClass extends React.Component {
         className={this.state.isOptionsOpen && 'opened'}
         ref={this.selectEl}
         onClick={this.handleSelectClick}
-        data-cy="theme-select">
+        data-cy="theme-select-class">
         <FlexClass>
           {`${capitalizeFirstLetter(
             this.props.theme,
@@ -88,7 +88,7 @@ class ThemeSelectClass extends React.Component {
               className={
                 this.props.theme === 'light' && 'hidden'
               }
-              data-cy="option-select-light">
+              data-cy="option-select-light-class">
               <FlexClass>Light theme</FlexClass>
             </SelectOption>
             <SelectOption
@@ -96,7 +96,7 @@ class ThemeSelectClass extends React.Component {
               className={
                 this.props.theme === 'dark' && 'hidden'
               }
-              data-cy="option-select-dark">
+              data-cy="option-select-dark-class">
               <FlexClass>Dark theme</FlexClass>
             </SelectOption>
           </OptionsWrapper>

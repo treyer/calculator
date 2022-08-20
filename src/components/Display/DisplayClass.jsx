@@ -12,10 +12,10 @@ import {
 class DisplayClass extends React.Component {
   render() {
     return (
-      <Wrapper data-cy="display">
+      <Wrapper data-cy="display-class">
         <FlexClass>
           <OutputWrapper>
-            <Output data-cy="display-output">
+            <Output data-cy="display-output-class">
               {this.props.output}
             </Output>
           </OutputWrapper>
