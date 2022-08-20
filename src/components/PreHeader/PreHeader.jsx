@@ -6,7 +6,7 @@ import PreHeaderButton from './PreHeaderButton'
 
 export const PreHeader = () => {
   return (
-    <PreHeaderWrapper>
+    <PreHeaderWrapper data-cy="pre-header">
       <Flex>
         <PreHeaderButton btnType="functional">
           Functional components + hooks implementation

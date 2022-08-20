@@ -144,10 +144,11 @@ class CalculatorClass extends React.Component {
 
   render() {
     return (
-      <CalculatorWrapper>
+      <CalculatorWrapper data-cy="calculator">
         <FlexClass direction="column" justify="start">
           <ControlPanelClass
             clearAll={this.operations.clearAll}
+            data-cy="control-panel"
           />
           <CalculatorInner>
             <FlexClass align="start">

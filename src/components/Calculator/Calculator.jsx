@@ -138,7 +138,7 @@ export const Calculator = () => {
   }
 
   return (
-    <CalculatorWrapper>
+    <CalculatorWrapper data-cy="calculator">
       <Flex direction="column" justify="start">
         <ControlPanel clearAll={operations.clearAll} />
         <CalculatorInner>

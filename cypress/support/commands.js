@@ -29,6 +29,17 @@ const KEYS_ADVANCED = {
   φ: 'golden ratio',
 }
 
+Cypress.Commands.add('getBySel', (selector, ...args) => {
+  return cy.get(`[data-cy=${selector}]`, ...args)
+})
+
+Cypress.Commands.add(
+  'getBySelLike',
+  (selector, ...args) => {
+    return cy.get(`[data-cy*=${selector}]`, ...args)
+  },
+)
+
 Cypress.Commands.add(
   'enterBasicKeypadExpression',
   exprInString => {
@@ -48,7 +59,7 @@ Cypress.Commands.add(
 )
 
 Cypress.Commands.add('checkCalculationResult', result => {
-  cy.get('#output')
+  cy.get('[data-cy="display-output"]')
     .invoke('text')
     .then(text => expect(text.trim()).equal(result))
 })

@@ -37,7 +37,7 @@ class ControlPanelClass extends React.Component {
 
   render() {
     return (
-      <PanelWrapper>
+      <PanelWrapper data-cy="control-panel">
         <FlexClass justify="start">
           <SwitchPanelClass
             label="Calculator type:"
@@ -47,6 +47,7 @@ class ControlPanelClass extends React.Component {
               this.props.calculatorType === 'advanced'
             }
             callback={this.ChangeCalculatorType}
+            data-cy="calculator-type-switch"
           />
           <SwitchPanelClass
             label="Expressions mode:"
@@ -56,6 +57,7 @@ class ControlPanelClass extends React.Component {
               this.props.expressionType === 'complex'
             }
             callback={this.ChangeExpressionType}
+            data-cy="expression-mode-switch"
           />
         </FlexClass>
       </PanelWrapper>

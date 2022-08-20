@@ -8,7 +8,7 @@ import { HeaderWrapper, HeaderInner } from './components'
 export class HeaderClass extends React.Component {
   render() {
     return (
-      <HeaderWrapper>
+      <HeaderWrapper data-cy="header">
         <HeaderInner>
           <FlexClass>
             <LogoClass>Calculator App</LogoClass>

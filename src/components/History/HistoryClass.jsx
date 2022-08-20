@@ -63,9 +63,9 @@ class HistoryClass extends React.Component {
 
   render() {
     return (
-      <HistoryWrapper>
+      <HistoryWrapper data-cy="history">
         <Heading>History</Heading>
-        <ContentBox>
+        <ContentBox data-cy="history-content-box">
           {this.props.operationsHistory.map(
             (item, index) => (
               <ExpressionHistory

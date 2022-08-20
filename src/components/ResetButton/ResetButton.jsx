@@ -18,7 +18,9 @@ export const ResetButton = () => {
   }
 
   return (
-    <Button onClick={handleClearHistory}>
+    <Button
+      onClick={handleClearHistory}
+      data-cy="clear-history-button">
       <Flex> Clear All History</Flex>
     </Button>
   )

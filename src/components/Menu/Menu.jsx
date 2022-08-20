@@ -10,12 +10,18 @@ import {
 
 export const Menu = () => {
   return (
-    <nav>
+    <nav data-cy="header-nav">
       <Flex>
-        <NavigationLink exact to={HOME_PAGE_ROUTE}>
+        <NavigationLink
+          exact
+          to={HOME_PAGE_ROUTE}
+          data-cy="button-home">
           Home
         </NavigationLink>
-        <NavigationLink exact to={SETTINGS_PAGE_ROUTE}>
+        <NavigationLink
+          exact
+          to={SETTINGS_PAGE_ROUTE}
+          data-cy="button-settings">
           Settings
         </NavigationLink>
       </Flex>

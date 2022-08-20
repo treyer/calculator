@@ -11,10 +11,10 @@ import {
 
 const Display = ({ output }) => {
   return (
-    <Wrapper>
+    <Wrapper data-cy="display">
       <Flex>
         <OutputWrapper>
-          <Output id="output">{output}</Output>
+          <Output data-cy="display-output">{output}</Output>
         </OutputWrapper>
       </Flex>
     </Wrapper>

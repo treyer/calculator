@@ -59,9 +59,9 @@ function History({ operationsHistory }) {
   })
 
   return (
-    <HistoryWrapper>
+    <HistoryWrapper data-cy="history">
       <Heading>History</Heading>
-      <ContentBox>
+      <ContentBox data-cy="history-content-box">
         {operationsHistory.map((item, index) => (
           <ExpressionHistory
             className={

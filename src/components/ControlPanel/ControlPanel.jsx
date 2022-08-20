@@ -32,7 +32,7 @@ function ControlPanel({ clearAll }) {
   }
 
   return (
-    <PanelWrapper>
+    <PanelWrapper data-cy="control-panel">
       <Flex justify="start">
         <SwitchPanel
           label="Calculator type:"
@@ -40,6 +40,7 @@ function ControlPanel({ clearAll }) {
           textAfter="advanced"
           isChecked={calculatorType === 'advanced'}
           callback={ChangeCalculatorType}
+          data-cy="calculator-type-switch"
         />
         <SwitchPanel
           label="Expressions mode:"
@@ -47,6 +48,7 @@ function ControlPanel({ clearAll }) {
           textAfter="complex"
           isChecked={expressionType === 'complex'}
           callback={ChangeExpressionType}
+          data-cy="expression-mode-switch"
         />
       </Flex>
     </PanelWrapper>

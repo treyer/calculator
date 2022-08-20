@@ -7,7 +7,7 @@ import { HeaderWrapper, HeaderInner } from './components'
 
 export const Header = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper data-cy="header">
       <HeaderInner>
         <Flex>
           <Logo>Calculator App</Logo>

@@ -11,12 +11,18 @@ import {
 export class MenuClass extends React.Component {
   render() {
     return (
-      <nav>
+      <nav data-cy="header-nav">
         <FlexClass>
-          <NavigationLink exact to={HOME_PAGE_ROUTE}>
+          <NavigationLink
+            exact
+            to={HOME_PAGE_ROUTE}
+            data-cy="button-home">
             Home
           </NavigationLink>
-          <NavigationLink exact to={SETTINGS_PAGE_ROUTE}>
+          <NavigationLink
+            exact
+            to={SETTINGS_PAGE_ROUTE}
+            data-cy="button-settings">
             Settings
           </NavigationLink>
         </FlexClass>

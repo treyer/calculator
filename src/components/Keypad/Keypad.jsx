@@ -24,7 +24,8 @@ const Keypad = ({ operations }) => {
     <Grid
       className={
         calculatorType === 'advanced' && 'advanced'
-      }>
+      }
+      data-cy="keypad">
       {keysMap.map(key => (
         <Flex key={key.id} justify="center">
           <Key

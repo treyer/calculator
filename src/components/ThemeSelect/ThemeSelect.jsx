@@ -32,18 +32,21 @@ export const ThemeSelect = () => {
     <Select
       className={isOptionsOpen && 'opened'}
       ref={selectEl}
-      onClick={handleSelectClick}>
+      onClick={handleSelectClick}
+      data-cy="theme-select">
       <Flex>{`${capitalizeFirstLetter(theme)} theme`}</Flex>
       {isOptionsOpen && (
         <OptionsWrapper>
           <SelectOption
             onClick={handleThemeChange}
-            className={theme === 'light' && 'hidden'}>
+            className={theme === 'light' && 'hidden'}
+            data-cy="option-select-light">
             <Flex>Light theme</Flex>
           </SelectOption>
           <SelectOption
             onClick={handleThemeChange}
-            className={theme === 'dark' && 'hidden'}>
+            className={theme === 'dark' && 'hidden'}
+            data-cy="option-select-dark">
             <Flex>Dark theme</Flex>
           </SelectOption>
         </OptionsWrapper>
