@@ -1,4 +1,4 @@
-describe('ThemeSelect', () => {
+describe('ThemeSelect class components', () => {
   beforeEach(() => {
     cy.visit('/settings')
     cy.contains('Class components implementation').click()

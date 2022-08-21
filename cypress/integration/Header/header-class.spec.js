@@ -1,4 +1,4 @@
-describe('Header', () => {
+describe('Header class components', () => {
   it('visits the app home page', () => {
     cy.visit('/')
   })
