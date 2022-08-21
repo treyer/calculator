@@ -67,3 +67,12 @@ Cypress.Commands.add('checkCalculationResult', result => {
 Cypress.Commands.add('clearCalculationResult', () => {
   cy.get(`div[title="clear"]`).click()
 })
+
+Cypress.Commands.add(
+  'getBySelAndCheckTextInside',
+  (selector, textToCheck) => {
+    cy.get(`[data-cy=${selector}]`)
+      .invoke('text')
+      .then(text => expect(text.trim()).equal(textToCheck))
+  },
+)
