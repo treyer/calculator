@@ -34,13 +34,6 @@ Cypress.Commands.add('getBySel', (selector, ...args) => {
 })
 
 Cypress.Commands.add(
-  'getBySelLike',
-  (selector, ...args) => {
-    return cy.get(`[data-cy*=${selector}]`, ...args)
-  },
-)
-
-Cypress.Commands.add(
   'enterBasicKeypadExpression',
   exprInString => {
     exprInString.split('').forEach(key => {
@@ -76,3 +69,10 @@ Cypress.Commands.add(
       .then(text => expect(text.trim()).equal(textToCheck))
   },
 )
+
+Cypress.Commands.add('checkKeypad', type => {
+  const keys = type === 'basic' ? KEYS : KEYS_ADVANCED
+  Object.values(keys).forEach(key => {
+    cy.get(`div[title="${key}"]`).should('be.visible')
+  })
+})

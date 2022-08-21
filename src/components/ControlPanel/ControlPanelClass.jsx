@@ -47,7 +47,6 @@ class ControlPanelClass extends React.Component {
               this.props.calculatorType === 'advanced'
             }
             callback={this.ChangeCalculatorType}
-            data-cy="calculator-type-switch-class"
           />
           <SwitchPanelClass
             label="Expressions mode:"
@@ -57,7 +56,6 @@ class ControlPanelClass extends React.Component {
               this.props.expressionType === 'complex'
             }
             callback={this.ChangeExpressionType}
-            data-cy="expression-mode-switch-class"
           />
         </FlexClass>
       </PanelWrapper>
