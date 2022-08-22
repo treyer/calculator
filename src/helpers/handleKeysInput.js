@@ -85,6 +85,12 @@ export const handleAddDigit = (digitInput, inputArr) => {
   }
 
   if (lastElementKey !== 'number') {
+    if (
+      lastElementKey === 'bracket' &&
+      lastElementValue === ')'
+    ) {
+      return null
+    }
     inputArrCopy.push({ number: digitInput })
     return inputArrCopy
   } else {
@@ -147,6 +153,12 @@ export const handleAddDot = inputArr => {
   }
 
   if (lastElementKey !== 'number') {
+    if (
+      lastElementKey === 'bracket' &&
+      lastElementValue === ')'
+    ) {
+      return null
+    }
     inputArrCopy.push({ number: '.' })
     return inputArrCopy
   } else {
@@ -194,7 +206,13 @@ export const handleAddOperator = (
       inputArrCopy.push({ operator: newOperator })
       return inputArrCopy
     }
-    if (lastElementKey === 'bracket') return null
+    if (lastElementKey === 'bracket') {
+      if (newOperator === '-') {
+        inputArrCopy.push({ number: '-' })
+        return inputArrCopy
+      }
+      return null
+    }
   } else {
     if (lastElementKey === 'bracket') {
       if (lastElementValue === ')') {
@@ -210,7 +228,7 @@ export const handleAddOperator = (
       }
     }
     if (lastElementKey === 'operator') {
-      if (newOperator === '-') {
+      if (newOperator === '-' && lastElementValue === '-') {
         inputArrCopy.push({ number: '-' })
         return inputArrCopy
       }

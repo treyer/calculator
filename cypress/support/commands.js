@@ -72,7 +72,21 @@ Cypress.Commands.add(
 
 Cypress.Commands.add('checkKeypad', type => {
   const keys = type === 'basic' ? KEYS : KEYS_ADVANCED
-  Object.values(keys).forEach(key => {
-    cy.get(`div[title="${key}"]`).should('be.visible')
+  Object.entries(keys).forEach(([key, value]) => {
+    cy.get(`div[title="${value}"]`)
+      .should('be.visible')
+      .contains(key)
   })
+})
+
+Cypress.Commands.add('clickCalcTypeSwitch', () => {
+  cy.get('label')
+    .eq(0)
+    .click()
+})
+
+Cypress.Commands.add('clickExprModeSwitch', () => {
+  cy.get('label')
+    .eq(1)
+    .click()
 })
