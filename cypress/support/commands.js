@@ -57,6 +57,15 @@ Cypress.Commands.add('checkCalculationResult', result => {
     .then(text => expect(text.trim()).equal(result))
 })
 
+Cypress.Commands.add(
+  'checkCalculationResultClass',
+  result => {
+    cy.get('[data-cy="display-output-class"]')
+      .invoke('text')
+      .then(text => expect(text.trim()).equal(result))
+  },
+)
+
 Cypress.Commands.add('clearCalculationResult', () => {
   cy.get(`div[title="clear"]`).click()
 })

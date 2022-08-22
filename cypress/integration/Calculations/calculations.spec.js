@@ -6,6 +6,7 @@ describe('Easy calculations in simple expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
   })
 
   it('Test simple addition', () => {
@@ -28,6 +29,11 @@ describe('Easy calculations in simple expression mode', () => {
     cy.checkCalculationResult('0.5')
   })
 
+  it('Test simple modulus', () => {
+    cy.enterAdvancedKeypadExpression('8%3=')
+    cy.checkCalculationResult('2')
+  })
+
   it('Test division by zero', () => {
     cy.enterBasicKeypadExpression('1/0=')
     cy.checkCalculationResult('Error: Division by zero')
@@ -38,6 +44,11 @@ describe('Easy calculations in complex expression mode', () => {
   afterEach(() => {
     cy.clearCalculationResult()
     cy.checkCalculationResult('0')
+  })
+
+  it('visits the app', () => {
+    cy.visit('/')
+    cy.clickCalcTypeSwitch()
   })
 
   it('change expression mode to complex', () => {
@@ -117,8 +128,23 @@ describe('Easy calculations in complex expression mode', () => {
   })
 
   it('Mixed base test 15', () => {
-    cy.enterBasicKeypadExpression('39/41+100+45=')
+    cy.enterAdvancedKeypadExpression('39/41+100+45=')
     cy.checkCalculationResult('145.951')
+  })
+
+  it('Mixed base test 16', () => {
+    cy.enterAdvancedKeypadExpression('39/41+100%45=')
+    cy.checkCalculationResult('10.951')
+  })
+
+  it('Mixed base test 17', () => {
+    cy.enterAdvancedKeypadExpression('67%25*7%8=')
+    cy.checkCalculationResult('7')
+  })
+
+  it('Mixed base test 18', () => {
+    cy.enterAdvancedKeypadExpression('12%3-18+34-8=')
+    cy.checkCalculationResult('8')
   })
 })
 
@@ -126,6 +152,12 @@ describe('Medium calculations in complex expression mode', () => {
   afterEach(() => {
     cy.clearCalculationResult()
     cy.checkCalculationResult('0')
+  })
+
+  it('visits the app', () => {
+    cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
   })
 
   it('Brackets must be paired 1', () => {
@@ -259,12 +291,39 @@ describe('Medium calculations in complex expression mode', () => {
     cy.enterBasicKeypadExpression('52*62*(61+12-14*79)+39=')
     cy.checkCalculationResult('-3330353')
   })
+
+  it('Brackets test 21', () => {
+    cy.enterAdvancedKeypadExpression(
+      '52%62*(61+12-14*79)%39=',
+    )
+    cy.checkCalculationResult('-13')
+  })
+
+  it('Brackets test 22', () => {
+    cy.enterAdvancedKeypadExpression(
+      '(56-34)%(23-34*(18+5))=',
+    )
+    cy.checkCalculationResult('22')
+  })
+
+  it('Brackets test 23', () => {
+    cy.enterAdvancedKeypadExpression(
+      '(45%0.5)+(17-90/(1111%17))=',
+    )
+    cy.checkCalculationResult('2')
+  })
 })
 
 describe('Hard calculations in complex expression mode', () => {
   afterEach(() => {
     cy.clearCalculationResult()
     cy.checkCalculationResult('0')
+  })
+
+  it('visits the app', () => {
+    cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
   })
 
   it('Nested brackets test 1', () => {
@@ -475,5 +534,19 @@ describe('Hard calculations in complex expression mode', () => {
       '59-13+(25*22/(47/38*(64/93-91+72)*66)+43-5)*39/55=',
     )
     cy.checkCalculationResult('72.685')
+  })
+
+  it('Nested brackets test 31', () => {
+    cy.enterAdvancedKeypadExpression(
+      '59-13+(25%22/(47/38*(64/93-91+72)%66)+43-5)*39/55=',
+    )
+    cy.checkCalculationResult('72.852')
+  })
+
+  it('Nested brackets test 32', () => {
+    cy.enterAdvancedKeypadExpression(
+      '93-42/(80%45+46+(66*45-26*0*84))-((20-59%18-62)/(9/90*16-6)*3)=',
+    )
+    cy.checkCalculationResult('60.941')
   })
 })
