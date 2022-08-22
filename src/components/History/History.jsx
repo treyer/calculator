@@ -11,7 +11,7 @@ import {
   RemoveBtn,
 } from './components'
 
-import { convertInputToString } from '@/helpers/convertInputToString'
+import { convertInputToString } from '@utils'
 import {
   removeHistoryItem,
   updateUserInput,

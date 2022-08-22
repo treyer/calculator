@@ -7,7 +7,6 @@ import FlexClass from '@components/Flex/FlexClass'
 import { ButtonText, PreHeaderBtn } from './components'
 
 import { changeComponentsType } from '@store/actions/settings'
-import { isPreHeaderBtnActive } from '@/helpers'
 
 class PreHeaderButton extends React.Component {
   constructor(props) {
@@ -27,10 +26,8 @@ class PreHeaderButton extends React.Component {
     return (
       <PreHeaderBtn
         className={
-          isPreHeaderBtnActive(
-            this.props.appType,
-            this.props.btnType,
-          ) && 'active'
+          this.props.appType === this.props.btnType &&
+          'active'
         }
         onClick={() =>
           this.handleAppTypeChange(this.props.btnType)

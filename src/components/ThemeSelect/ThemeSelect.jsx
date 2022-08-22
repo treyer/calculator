@@ -10,7 +10,7 @@ import {
 } from './components'
 
 import { changeTheme } from '@store/actions/settings'
-import { capitalizeFirstLetter } from '@/helpers'
+import { capitalizeFirstLetter } from '@utils'
 import { useClickOutside } from '@/hooks/useClickOutside'
 
 export const ThemeSelect = () => {

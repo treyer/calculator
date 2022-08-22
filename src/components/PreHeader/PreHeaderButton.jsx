@@ -7,7 +7,6 @@ import Flex from '@components/Flex/Flex'
 import { ButtonText, PreHeaderBtn } from './components'
 
 import { changeComponentsType } from '@store/actions/settings'
-import { isPreHeaderBtnActive } from '@/helpers'
 
 function PreHeaderButton({ children, btnType }) {
   const { appType } = useSelector(state => state.settings)
@@ -21,9 +20,7 @@ function PreHeaderButton({ children, btnType }) {
 
   return (
     <PreHeaderBtn
-      className={
-        isPreHeaderBtnActive(appType, btnType) && 'active'
-      }
+      className={appType === btnType && 'active'}
       onClick={() => handleAppTypeChange(btnType)}>
       <Flex justify="center">
         <ButtonText>{children}</ButtonText>

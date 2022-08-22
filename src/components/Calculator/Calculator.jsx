@@ -22,8 +22,10 @@ import {
   numberConstants,
   operators,
 } from '@constants'
-import { convertInputToString } from '@/helpers/convertInputToString'
 import {
+  isInputComplete,
+  calculateExpression,
+  convertInputToString,
   handleAddBracket,
   handleAddConstant,
   handleAddDigit,
@@ -32,9 +34,7 @@ import {
   handleChangeSign,
   handleClearAll,
   handleClearEntry,
-  isInputComplete,
-} from '@/helpers/handleKeysInput'
-import { calculateExpression } from '@/helpers/handleCalculation'
+} from '@/utils'
 
 export const Calculator = () => {
   const { userInput } = useSelector(state => state.data)

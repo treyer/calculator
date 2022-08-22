@@ -23,8 +23,10 @@ import {
   numberConstants,
   operators,
 } from '@constants'
-import { convertInputToString } from '@/helpers/convertInputToString'
 import {
+  calculateExpression,
+  convertInputToString,
+  isInputComplete,
   handleAddBracket,
   handleAddConstant,
   handleAddDigit,
@@ -33,9 +35,7 @@ import {
   handleChangeSign,
   handleClearAll,
   handleClearEntry,
-  isInputComplete,
-} from '@/helpers/handleKeysInput'
-import { calculateExpression } from '@/helpers/handleCalculation'
+} from '@utils'
 
 class CalculatorClass extends React.Component {
   constructor(props) {

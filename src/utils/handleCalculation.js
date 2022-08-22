@@ -2,9 +2,7 @@
 // from the project I wrote during the RSSchool course
 // Link: https://github.com/treyer/expression-calculator
 
-import { convertInputToString } from '@/helpers/convertInputToString'
-import { trimNumber } from '@/helpers/handleKeysInput'
-
+import { convertInputToString, trimNumber } from '@utils'
 import { CALCULATIONS_PRECISION } from '@/constants'
 
 export const calculateExpression = userInput => {
