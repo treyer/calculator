@@ -9,7 +9,7 @@ import {
   SelectOption,
 } from './components'
 
-import { changeTheme } from '@store/actions/settings'
+import { initializeChangeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
 
 class ThemeSelectClass extends React.Component {
@@ -60,7 +60,7 @@ class ThemeSelectClass extends React.Component {
   }
 
   handleThemeChange = () => {
-    this.props.changeTheme()
+    this.props.initializeChangeTheme()
   }
 
   handleSelectClick = () => {
@@ -111,7 +111,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = () => ({
-  changeTheme,
+  initializeChangeTheme,
 })
 
 export default connect(

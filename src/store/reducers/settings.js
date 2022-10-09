@@ -9,7 +9,7 @@ import {
 
 const INITIAL_STATE = {
   appType: 'functional', // 'functional' or 'class'
-  theme: 'light', // 'light' or 'dark'
+  theme: localStorage.getItem('theme') || 'light', // 'light' or 'dark'
   expressionType: 'complex', // 'simple' or 'complex'
   calculatorType: 'advanced', // 'basic' or 'advanced'
 }

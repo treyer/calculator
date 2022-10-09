@@ -9,7 +9,7 @@ import {
   SelectOption,
 } from './components'
 
-import { changeTheme } from '@store/actions/settings'
+import { initializeChangeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
 import { useClickOutside } from '@/hooks/useClickOutside'
 
@@ -21,7 +21,7 @@ export const ThemeSelect = () => {
   useClickOutside(selectEl, () => setIsOptionsOpen(false))
 
   const handleThemeChange = () => {
-    dispatch(changeTheme())
+    dispatch(initializeChangeTheme())
   }
 
   const handleSelectClick = () => {
