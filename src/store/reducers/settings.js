@@ -10,8 +10,8 @@ import {
 const INITIAL_STATE = {
   appType: 'functional', // 'functional' or 'class'
   theme: 'light', // 'light' or 'dark'
-  expressionType: 'simple', // 'simple' or 'complex'
-  calculatorType: 'basic', // 'basic' or 'advanced'
+  expressionType: 'complex', // 'simple' or 'complex'
+  calculatorType: 'advanced', // 'basic' or 'advanced'
 }
 
 export default handleActions(
