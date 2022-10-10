@@ -269,3 +269,68 @@ describe('History expressions remove class components', () => {
       .should('not.exist')
   })
 })
+
+describe('Remove history expressions by clear button', () => {
+  beforeEach(() => {
+    cy.visit('/')
+    cy.contains('Class components implementation').click()
+  })
+
+  it('remove single history expression', () => {
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 0)
+    cy.enterBasicKeypadExpression('2+2=')
+    cy.clearCalculationResult()
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 1)
+    cy.getBySel('history-content-box-class').contains(
+      '2 + 2 = 4',
+    )
+    cy.getBySel('clear-history-block-button-class').click()
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 0)
+    cy.getBySel('history-content-box-class')
+      .contains('2 + 2 = 4')
+      .should('not.exist')
+  })
+
+  it('remove multiple history expressions', () => {
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 0)
+    cy.enterBasicKeypadExpression('2+2=')
+    cy.clearCalculationResult()
+    cy.enterBasicKeypadExpression('3+3=')
+    cy.clearCalculationResult()
+    cy.enterBasicKeypadExpression('4+4=')
+    cy.clearCalculationResult()
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 3)
+    cy.getBySel('history-content-box-class').contains(
+      '2 + 2 = 4',
+    )
+    cy.getBySel('history-content-box-class').contains(
+      '3 + 3 = 6',
+    )
+    cy.getBySel('history-content-box-class').contains(
+      '4 + 4 = 8',
+    )
+    cy.getBySel('clear-history-block-button-class').click()
+    cy.getBySel('history-content-box-class')
+      .children()
+      .should('have.length', 0)
+    cy.getBySel('history-content-box-class')
+      .contains('2 + 2 = 4')
+      .should('not.exist')
+    cy.getBySel('history-content-box-class')
+      .contains('3 + 3 = 6')
+      .should('not.exist')
+    cy.getBySel('history-content-box-class')
+      .contains('4 + 4 = 8')
+      .should('not.exist')
+  })
+})

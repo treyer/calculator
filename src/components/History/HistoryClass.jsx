@@ -10,8 +10,10 @@ import {
   ExpressionHistory,
   RemoveBtn,
 } from './components'
+import ResetHistoryButtonClass from '../ResetHistoryButton/ResetHistoryButtonClass'
 import { convertInputToString } from '@utils'
 import {
+  clearHistory,
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
@@ -27,6 +29,9 @@ class HistoryClass extends React.Component {
       this,
     )
     this.handleRemoveHistoryExpr = this.handleRemoveHistoryExpr.bind(
+      this,
+    )
+    this.handleResetHistory = this.handleResetHistory.bind(
       this,
     )
   }
@@ -61,10 +66,22 @@ class HistoryClass extends React.Component {
     this.props.removeHistoryItem(index)
   }
 
+  handleResetHistory = () => {
+    if (this.props.operationsHistory.length > 0) {
+      this.props.clearHistory()
+    }
+  }
+
   render() {
     return (
       <HistoryWrapper data-cy="history-class">
-        <Heading>History</Heading>
+        <Heading>
+          History{' '}
+          <ResetHistoryButtonClass
+            // eslint-disable-next-line react/jsx-handler-names
+            handleResetCallback={this.handleResetHistory}
+          />
+        </Heading>
         <ContentBox data-cy="history-content-box-class">
           {this.props.operationsHistory.map(
             (item, index) => (
@@ -116,6 +133,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = () => ({
+  clearHistory,
   updateUserInput,
   removeHistoryItem,
 })

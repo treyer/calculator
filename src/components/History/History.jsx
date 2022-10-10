@@ -10,9 +10,11 @@ import {
   HistoryWrapper,
   RemoveBtn,
 } from './components'
+import ResetHistoryButton from '@components/ResetHistoryButton/ResetHistoryButton'
 
 import { convertInputToString } from '@utils'
 import {
+  clearHistory,
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
@@ -49,6 +51,12 @@ function History({ operationsHistory }) {
     dispatch(removeHistoryItem(index))
   }
 
+  const handleResetHistory = () => {
+    if (operationsHistory.length > 0) {
+      dispatch(clearHistory())
+    }
+  }
+
   useEffect(() => {
     if (isError === true) {
       setTimeout(() => {
@@ -60,7 +68,12 @@ function History({ operationsHistory }) {
 
   return (
     <HistoryWrapper data-cy="history">
-      <Heading>History</Heading>
+      <Heading>
+        History
+        <ResetHistoryButton
+          handleResetCallback={handleResetHistory}
+        />
+      </Heading>
       <ContentBox data-cy="history-content-box">
         {operationsHistory.map((item, index) => (
           <ExpressionHistory
