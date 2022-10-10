@@ -71,9 +71,14 @@ function History({ operationsHistory }) {
             }
             key={index}
             onClick={() =>
-              handleSetHistoryExprAsCurrent(item, index)
+              handleSetHistoryExprAsCurrent(
+                item.expression,
+                index,
+              )
             }>
-            {convertInputToString(item)}
+            {`${convertInputToString(item.expression)}= ${
+              item.result
+            }`}
             <RemoveBtn
               onClick={event => {
                 handleRemoveHistoryExpr(event, index)
@@ -89,7 +94,10 @@ function History({ operationsHistory }) {
 
 History.propTypes = {
   operationsHistory: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.shape({
+      expression: PropTypes.array,
+      result: PropTypes.string,
+    }),
   ).isRequired,
 }
 

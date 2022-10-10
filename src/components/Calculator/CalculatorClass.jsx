@@ -50,8 +50,11 @@ class CalculatorClass extends React.Component {
     this.props.updateUserInput(newInput)
   }
 
-  addExpressionToHistory = expr => {
-    this.props.addHistoryItem(expr)
+  addExpressionToHistory = (expr, res) => {
+    this.props.addHistoryItem({
+      expression: expr,
+      result: res,
+    })
   }
 
   operations = {
@@ -87,7 +90,7 @@ class CalculatorClass extends React.Component {
               { number: String(res) },
               { operator: operators[operator] },
             ])
-            this.addExpressionToHistory(expression)
+            this.addExpressionToHistory(expression, res)
           } catch (err) {
             this.updateInput([{ error: err.message }])
           }
@@ -132,7 +135,7 @@ class CalculatorClass extends React.Component {
             this.props.userInput,
           )
           this.updateInput([{ number: String(res) }])
-          this.addExpressionToHistory(expression)
+          this.addExpressionToHistory(expression, res)
         } catch (err) {
           this.updateInput([{ error: err.message }])
         }

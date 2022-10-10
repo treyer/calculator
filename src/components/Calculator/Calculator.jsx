@@ -48,8 +48,10 @@ export const Calculator = () => {
     dispatch(updateUserInput(newInput))
   }
 
-  const addExpressionToHistory = expr => {
-    dispatch(addHistoryItem(expr))
+  const addExpressionToHistory = (expr, res) => {
+    dispatch(
+      addHistoryItem({ expression: expr, result: res }),
+    )
   }
 
   const operations = {
@@ -82,7 +84,7 @@ export const Calculator = () => {
               { number: String(res) },
               { operator: operators[operator] },
             ])
-            addExpressionToHistory(expression)
+            addExpressionToHistory(expression, res)
           } catch (err) {
             updateInput([{ error: err.message }])
           }
@@ -127,7 +129,7 @@ export const Calculator = () => {
             userInput,
           )
           updateInput([{ number: String(res) }])
-          addExpressionToHistory(expression)
+          addExpressionToHistory(expression, res)
         } catch (err) {
           updateInput([{ error: err.message }])
         }

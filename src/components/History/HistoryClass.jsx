@@ -77,11 +77,13 @@ class HistoryClass extends React.Component {
                 }
                 onClick={() =>
                   this.handleSetHistoryExprAsCurrent(
-                    item,
+                    item.expression,
                     index,
                   )
                 }>
-                {convertInputToString(item)}
+                {`${convertInputToString(
+                  item.expression,
+                )}= ${item.result}`}
                 <RemoveBtn
                   onClick={event => {
                     this.handleRemoveHistoryExpr(
@@ -100,9 +102,12 @@ class HistoryClass extends React.Component {
   }
 }
 
-HistoryClass.propTypes = {
+History.propTypes = {
   operationsHistory: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.shape({
+      expression: PropTypes.array,
+      result: PropTypes.string,
+    }),
   ).isRequired,
 }
 

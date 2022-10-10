@@ -23,7 +23,7 @@ export default handleActions(
     [addHistoryItem]: (state, action) => {
       return {
         ...state,
-        historyArr: [action.payload, ...state.historyArr],
+        historyArr: [...state.historyArr, action.payload],
       }
     },
     [removeHistoryItem]: (state, action) => {
