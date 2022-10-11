@@ -17,12 +17,14 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
+import HistoryBlockButtonClass from '../HistoryBlockButton/HistoryBlockButtonClass'
 
 class HistoryClass extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       isError: false,
+      isShown: true,
     }
     this.errorItemIndex = -1
     this.handleSetHistoryExprAsCurrent = this.handleSetHistoryExprAsCurrent.bind(
@@ -32,6 +34,9 @@ class HistoryClass extends React.Component {
       this,
     )
     this.handleResetHistory = this.handleResetHistory.bind(
+      this,
+    )
+    this.handleShowComponent = this.handleShowComponent.bind(
       this,
     )
   }
@@ -72,17 +77,30 @@ class HistoryClass extends React.Component {
     }
   }
 
+  handleShowComponent = () => {
+    this.setState({ isShown: !this.state.isShown })
+  }
+
   render() {
     return (
-      <HistoryWrapper data-cy="history-class">
-        <Heading>
+      <HistoryWrapper
+        data-cy="history-class"
+        isShown={this.state.isShown}>
+        <HistoryBlockButtonClass
+          isShown={this.state.isShown}
+          // eslint-disable-next-line react/jsx-handler-names
+          handleClick={this.handleShowComponent}
+        />
+        <Heading isShown={this.state.isShown}>
           History{' '}
           <ResetHistoryButtonClass
             // eslint-disable-next-line react/jsx-handler-names
             handleResetCallback={this.handleResetHistory}
           />
         </Heading>
-        <ContentBox data-cy="history-content-box-class">
+        <ContentBox
+          data-cy="history-content-box-class"
+          isShown={this.state.isShown}>
           {this.props.operationsHistory.map(
             (item, index) => (
               <ExpressionHistory

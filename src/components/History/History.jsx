@@ -18,6 +18,7 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
+import HistoryBlockButton from '../HistoryBlockButton/HistoryBlockButton'
 
 function History({ operationsHistory }) {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ function History({ operationsHistory }) {
     state => state.settings,
   )
   const [isError, setIsError] = useState(false)
+  const [isShown, setIsShown] = useState(true)
   const errorItemIndex = useRef(-1)
 
   const handleSetHistoryExprAsCurrent = (
@@ -57,6 +59,10 @@ function History({ operationsHistory }) {
     }
   }
 
+  const handleShowComponent = () => {
+    setIsShown(prev => !prev)
+  }
+
   useEffect(() => {
     if (isError === true) {
       setTimeout(() => {
@@ -67,14 +73,20 @@ function History({ operationsHistory }) {
   })
 
   return (
-    <HistoryWrapper data-cy="history">
-      <Heading>
+    <HistoryWrapper data-cy="history" isShown={isShown}>
+      <HistoryBlockButton
+        isShown={isShown}
+        handleClick={handleShowComponent}
+      />
+      <Heading isShown={isShown}>
         History
         <ResetHistoryButton
           handleResetCallback={handleResetHistory}
         />
       </Heading>
-      <ContentBox data-cy="history-content-box">
+      <ContentBox
+        data-cy="history-content-box"
+        isShown={isShown}>
         {operationsHistory.map((item, index) => (
           <ExpressionHistory
             className={

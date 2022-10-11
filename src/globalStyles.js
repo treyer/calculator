@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    overflow: hidden;
+  }
+
   html, body {
     width: 100%;
     height: 100%;
