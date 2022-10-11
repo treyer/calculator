@@ -2,14 +2,17 @@ import { handleActions } from 'redux-actions'
 
 import {
   addHistoryItem,
+  clearExpression,
   clearHistory,
   removeHistoryItem,
+  setExpression,
   updateUserInput,
 } from '@store/actions/data'
 
 const INITIAL_STATE = {
   historyArr: [],
   userInput: [{ number: '0' }],
+  expression: '',
 }
 
 export default handleActions(
@@ -38,6 +41,18 @@ export default handleActions(
       return {
         ...state,
         userInput: action.payload,
+      }
+    },
+    [setExpression]: (state, action) => {
+      return {
+        ...state,
+        expression: action.payload,
+      }
+    },
+    [clearExpression]: (state, action) => {
+      return {
+        ...state,
+        expression: '',
       }
     },
   },

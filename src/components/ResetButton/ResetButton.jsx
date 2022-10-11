@@ -5,6 +5,7 @@ import Flex from '@components/Flex/Flex'
 import { Button } from './components'
 
 import {
+  clearExpression,
   clearHistory,
   updateUserInput,
 } from '@store/actions/data'
@@ -14,6 +15,7 @@ export const ResetButton = () => {
 
   const handleClearHistory = () => {
     dispatch(clearHistory())
+    dispatch(clearExpression())
     dispatch(updateUserInput([{ number: '0' }]))
   }
 

@@ -15,6 +15,8 @@ import {
 
 import {
   addHistoryItem,
+  clearExpression,
+  setExpression,
   updateUserInput,
 } from '@store/actions/data'
 import {
@@ -38,6 +40,7 @@ import {
 
 export const Calculator = () => {
   const { userInput } = useSelector(state => state.data)
+  const { expression } = useSelector(state => state.data)
   const { expressionType } = useSelector(
     state => state.settings,
   )
@@ -54,10 +57,21 @@ export const Calculator = () => {
     )
   }
 
+  const clearCalcExpression = () => {
+    if (expression.length !== 0) {
+      dispatch(clearExpression())
+    }
+  }
+
+  const setCalcExpression = expr => {
+    dispatch(setExpression(expr))
+  }
+
   const operations = {
     addDigit: (digit, setIsError) => {
       const res = handleAddDigit(digit, userInput)
       res ? updateInput(res) : setIsError(true)
+      if (res) clearCalcExpression()
     },
     addConstant: (constantType, setIsError) => {
       const res = handleAddConstant(
@@ -65,10 +79,12 @@ export const Calculator = () => {
         userInput,
       )
       res ? updateInput(res) : setIsError(true)
+      if (res) clearCalcExpression()
     },
     addDot: (payload, setIsError) => {
       const res = handleAddDot(userInput)
       res ? updateInput(res) : setIsError(true)
+      if (res) clearCalcExpression()
     },
     addOperator: (operator, setIsError) => {
       if (
@@ -85,6 +101,9 @@ export const Calculator = () => {
               { operator: operators[operator] },
             ])
             addExpressionToHistory(expression, res)
+            setCalcExpression(
+              `${convertInputToString(expression)} =`,
+            )
           } catch (err) {
             updateInput([{ error: err.message }])
           }
@@ -97,6 +116,7 @@ export const Calculator = () => {
           userInput,
         )
         res ? updateInput(res) : setIsError(true)
+        if (res) clearCalcExpression()
       }
     },
     addBracket: (bracket, setIsError) => {
@@ -106,6 +126,7 @@ export const Calculator = () => {
           userInput,
         )
         res ? updateInput(res) : setIsError(true)
+        if (res) clearCalcExpression()
       } else {
         setIsError(true)
       }
@@ -113,14 +134,17 @@ export const Calculator = () => {
     changeSign: (payload, setIsError) => {
       const res = handleChangeSign(userInput)
       res ? updateInput(res) : setIsError(true)
+      if (res) clearCalcExpression()
     },
     clearAll: () => {
       const res = handleClearAll(userInput)
       if (res) updateInput(res)
+      if (res) clearCalcExpression()
     },
     clearEntry: () => {
       const res = handleClearEntry(userInput)
       if (res) updateInput(res)
+      if (res) clearCalcExpression()
     },
     calculate: (payload, setIsError) => {
       if (isInputComplete(userInput)) {
@@ -130,8 +154,12 @@ export const Calculator = () => {
           )
           updateInput([{ number: String(res) }])
           addExpressionToHistory(expression, res)
+          setCalcExpression(
+            `${convertInputToString(expression)} =`,
+          )
         } catch (err) {
           updateInput([{ error: err.message }])
+          clearCalcExpression()
         }
       } else {
         setIsError(true)
@@ -149,6 +177,7 @@ export const Calculator = () => {
               <Flex direction="column" justify="start">
                 <Display
                   output={convertInputToString(userInput)}
+                  expression={expression}
                 />
                 <KeypadWrapper>
                   <Keypad operations={operations} />

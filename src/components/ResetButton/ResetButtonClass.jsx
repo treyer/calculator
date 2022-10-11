@@ -6,6 +6,7 @@ import FlexClass from '@components/Flex/FlexClass'
 import { Button } from './components'
 
 import {
+  clearExpression,
   clearHistory,
   updateUserInput,
 } from '@store/actions/data'
@@ -20,6 +21,7 @@ class ResetButtonClass extends React.Component {
 
   handleClearHistory = () => {
     this.props.clearHistory()
+    this.props.clearExpression()
     this.props.updateUserInput([{ number: '0' }])
   }
 
@@ -35,6 +37,7 @@ class ResetButtonClass extends React.Component {
 }
 
 const mapDispatchToProps = () => ({
+  clearExpression,
   clearHistory,
   updateUserInput,
 })

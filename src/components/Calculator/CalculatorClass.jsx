@@ -16,6 +16,8 @@ import {
 
 import {
   addHistoryItem,
+  clearExpression,
+  setExpression,
   updateUserInput,
 } from '@store/actions/data'
 import {
@@ -44,6 +46,12 @@ class CalculatorClass extends React.Component {
     this.addExpressionToHistory = this.addExpressionToHistory.bind(
       this,
     )
+    this.clearCalcExpression = this.clearCalcExpression.bind(
+      this,
+    )
+    this.setCalcExpression = this.setCalcExpression.bind(
+      this,
+    )
   }
 
   updateInput = newInput => {
@@ -57,6 +65,16 @@ class CalculatorClass extends React.Component {
     })
   }
 
+  clearCalcExpression = () => {
+    if (this.props.expression.length !== 0) {
+      this.props.clearExpression()
+    }
+  }
+
+  setCalcExpression = expr => {
+    this.props.setExpression(expr)
+  }
+
   operations = {
     addDigit: (digit, setIsError) => {
       const res = handleAddDigit(
@@ -64,6 +82,7 @@ class CalculatorClass extends React.Component {
         this.props.userInput,
       )
       res ? this.updateInput(res) : setIsError()
+      if (res) this.clearCalcExpression()
     },
     addConstant: (constantType, setIsError) => {
       const res = handleAddConstant(
@@ -71,10 +90,12 @@ class CalculatorClass extends React.Component {
         this.props.userInput,
       )
       res ? this.updateInput(res) : setIsError()
+      if (res) this.clearCalcExpression()
     },
     addDot: (payload, setIsError) => {
       const res = handleAddDot(this.props.userInput)
       res ? this.updateInput(res) : setIsError()
+      if (res) this.clearCalcExpression()
     },
     addOperator: (operator, setIsError) => {
       if (
@@ -91,6 +112,9 @@ class CalculatorClass extends React.Component {
               { operator: operators[operator] },
             ])
             this.addExpressionToHistory(expression, res)
+            this.setCalcExpression(
+              `${convertInputToString(expression)} =`,
+            )
           } catch (err) {
             this.updateInput([{ error: err.message }])
           }
@@ -103,6 +127,7 @@ class CalculatorClass extends React.Component {
           this.props.userInput,
         )
         res ? this.updateInput(res) : setIsError()
+        if (res) this.clearCalcExpression()
       }
     },
     addBracket: (bracket, setIsError) => {
@@ -112,6 +137,7 @@ class CalculatorClass extends React.Component {
           this.props.userInput,
         )
         res ? this.updateInput(res) : setIsError()
+        if (res) this.clearCalcExpression()
       } else {
         setIsError()
       }
@@ -119,14 +145,17 @@ class CalculatorClass extends React.Component {
     changeSign: (payload, setIsError) => {
       const res = handleChangeSign(this.props.userInput)
       res ? this.updateInput(res) : setIsError()
+      if (res) this.clearCalcExpression()
     },
     clearAll: () => {
       const res = handleClearAll(this.props.userInput)
       if (res) this.updateInput(res)
+      if (res) this.clearCalcExpression()
     },
     clearEntry: () => {
       const res = handleClearEntry(this.props.userInput)
       if (res) this.updateInput(res)
+      if (res) this.clearCalcExpression()
     },
     calculate: (payload, setIsError) => {
       if (isInputComplete(this.props.userInput)) {
@@ -136,8 +165,12 @@ class CalculatorClass extends React.Component {
           )
           this.updateInput([{ number: String(res) }])
           this.addExpressionToHistory(expression, res)
+          this.setCalcExpression(
+            `${convertInputToString(expression)} =`,
+          )
         } catch (err) {
           this.updateInput([{ error: err.message }])
+          this.clearCalcExpression()
         }
       } else {
         setIsError()
@@ -163,6 +196,7 @@ class CalculatorClass extends React.Component {
                     output={convertInputToString(
                       this.props.userInput,
                     )}
+                    expression={this.props.expression}
                   />
                   <KeypadWrapper>
                     <KeypadClass
@@ -184,12 +218,15 @@ class CalculatorClass extends React.Component {
 
 const mapStateToProps = state => ({
   userInput: state.data.userInput,
+  expression: state.data.expression,
   historyArr: state.data.historyArr,
   expressionType: state.settings.expressionType,
 })
 
 const mapDispatchToProps = () => ({
   addHistoryItem,
+  clearExpression,
+  setExpression,
   updateUserInput,
 })
 
