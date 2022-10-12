@@ -13,6 +13,7 @@ import {
 import ResetHistoryButtonClass from '../ResetHistoryButton/ResetHistoryButtonClass'
 import { convertInputToString } from '@utils'
 import {
+  clearExpression,
   clearHistory,
   removeHistoryItem,
   updateUserInput,
@@ -53,12 +54,14 @@ class HistoryClass extends React.Component {
   handleSetHistoryExprAsCurrent = (userInput, index) => {
     if (this.props.expressionType === 'complex') {
       this.props.updateUserInput(userInput)
+      this.props.clearExpression()
     } else {
       const isBrackets = userInput.some(
         el => Object.keys(el)[0] === 'bracket',
       )
       if (!isBrackets) {
         this.props.updateUserInput(userInput)
+        this.props.clearExpression()
       } else {
         this.errorItemIndex = index
         this.setState({ isError: true })
@@ -151,6 +154,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = () => ({
+  clearExpression,
   clearHistory,
   updateUserInput,
   removeHistoryItem,

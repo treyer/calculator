@@ -14,6 +14,7 @@ import ResetHistoryButton from '@components/ResetHistoryButton/ResetHistoryButto
 
 import { convertInputToString } from '@utils'
 import {
+  clearExpression,
   clearHistory,
   removeHistoryItem,
   updateUserInput,
@@ -35,12 +36,14 @@ function History({ operationsHistory }) {
   ) => {
     if (expressionType === 'complex') {
       dispatch(updateUserInput(userInput))
+      dispatch(clearExpression())
     } else {
       const isBrackets = userInput.some(
         el => Object.keys(el)[0] === 'bracket',
       )
       if (!isBrackets) {
         dispatch(updateUserInput(userInput))
+        dispatch(clearExpression())
       } else {
         errorItemIndex.current = index
         setIsError(true)
