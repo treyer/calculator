@@ -1,6 +1,8 @@
 describe('Keypad common', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
   })
 
   it('check basic keypad structure', () => {
@@ -127,6 +129,8 @@ describe('Keypad common', () => {
 describe('Keypad input validations', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
   })
 
   it('forbid input 0-digit if last number is 0', () => {
@@ -410,6 +414,8 @@ describe('Keypad input validations', () => {
 describe('Keypad input improvements', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
   })
 
   it('replace last "0" number to non-0 digit input', () => {

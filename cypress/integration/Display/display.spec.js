@@ -10,7 +10,6 @@ describe('Display', () => {
   })
 
   it('check if correct input shows', () => {
-    cy.clickExprModeSwitch()
     cy.getBySelAndCheckTextInside('display-output', '0')
     cy.enterBasicKeypadExpression('12+13*56/67')
     cy.getBySelAndCheckTextInside(

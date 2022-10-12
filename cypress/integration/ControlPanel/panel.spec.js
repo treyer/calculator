@@ -1,6 +1,12 @@
 describe('Options panel', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.get('label')
+      .eq(0)
+      .click()
+    cy.get('label')
+      .eq(1)
+      .click()
   })
 
   it('check options panel initial state', () => {

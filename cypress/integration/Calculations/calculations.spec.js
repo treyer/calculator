@@ -6,7 +6,6 @@ describe('Easy calculations in simple expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
   })
 
   it('Test simple addition', () => {
@@ -48,13 +47,6 @@ describe('Easy calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
-  })
-
-  it('change expression mode to complex', () => {
-    cy.get('label')
-      .eq(1)
-      .click()
   })
 
   it('Mixed base test 1', () => {
@@ -156,8 +148,6 @@ describe('Medium calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
-    cy.clickExprModeSwitch()
   })
 
   it('Brackets must be paired 1', () => {
@@ -322,8 +312,6 @@ describe('Hard calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
-    cy.clickExprModeSwitch()
   })
 
   it('Nested brackets test 1', () => {

@@ -6,7 +6,6 @@ describe('Easy calculations in simple expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
     cy.contains('Class components implementation').click()
   })
 
@@ -51,14 +50,7 @@ describe('Easy calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
     cy.contains('Class components implementation').click()
-  })
-
-  it('change expression mode to complex', () => {
-    cy.get('label')
-      .eq(1)
-      .click()
   })
 
   it('Mixed base test 1', () => {
@@ -160,8 +152,6 @@ describe('Medium calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
-    cy.clickExprModeSwitch()
     cy.contains('Class components implementation').click()
   })
 
@@ -331,8 +321,6 @@ describe('Hard calculations in complex expression mode', () => {
 
   it('visits the app', () => {
     cy.visit('/')
-    cy.clickCalcTypeSwitch()
-    cy.clickExprModeSwitch()
     cy.contains('Class components implementation').click()
   })
 

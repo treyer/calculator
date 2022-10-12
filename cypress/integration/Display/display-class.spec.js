@@ -14,7 +14,6 @@ describe('Display', () => {
   })
 
   it('check if correct input shows', () => {
-    cy.clickExprModeSwitch()
     cy.getBySelAndCheckTextInside(
       'display-output-class',
       '0',

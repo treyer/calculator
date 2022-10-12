@@ -1,6 +1,8 @@
 describe('Keypad common', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
     cy.contains('Class components implementation')
       .should('be.visible')
       .click()
@@ -151,6 +153,8 @@ describe('Keypad common', () => {
 describe('Keypad input validations', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
     cy.contains('Class components implementation')
       .should('be.visible')
       .click()
@@ -617,6 +621,8 @@ describe('Keypad input validations', () => {
 describe('Keypad input improvements', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clickCalcTypeSwitch()
+    cy.clickExprModeSwitch()
     cy.contains('Class components implementation')
       .should('be.visible')
       .click()
