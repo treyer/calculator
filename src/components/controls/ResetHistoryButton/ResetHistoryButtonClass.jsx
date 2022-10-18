@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FlexClass from '@components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import { Button } from './components'
 
 class ResetHistoryButtonClass extends React.Component {

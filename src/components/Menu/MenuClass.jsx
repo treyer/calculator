@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FlexClass from '@components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import { NavigationLink } from './components'
 
 import {

@@ -77,6 +77,14 @@ module.exports = {
       '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@utils': path.resolve(__dirname, 'src/utils'),
+      '@controls': path.resolve(
+        __dirname,
+        'src/components/controls',
+      ),
+      '@wrappers': path.resolve(
+        __dirname,
+        'src/components/wrappers',
+      ),
     },
   },
 }

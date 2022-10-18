@@ -8,10 +8,7 @@ import {
   PreHeaderClass,
 } from '@components/PreHeader'
 import { Header, HeaderClass } from '@components/Header'
-import {
-  Application,
-  ApplicationClass,
-} from '@components/App'
+import { Application, ApplicationClass } from '@/App'
 import { LayoutWrapper } from './components'
 
 import theme from '@/theme'

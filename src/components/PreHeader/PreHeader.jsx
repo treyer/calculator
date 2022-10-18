@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import { PreHeaderWrapper } from './components'
 import PreHeaderButton from './PreHeaderButton'
 

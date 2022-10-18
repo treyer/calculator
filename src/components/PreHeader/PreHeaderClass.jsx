@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PreHeaderButtonClass from './PreHeaderButtonClass'
-import FlexClass from '@components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import { PreHeaderWrapper } from './components'
 
 export class PreHeaderClass extends React.Component {

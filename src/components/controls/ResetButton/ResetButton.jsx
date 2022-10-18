@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import { Button } from './components'
 
 import {

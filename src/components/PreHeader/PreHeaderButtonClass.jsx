@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import FlexClass from '@components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import { ButtonText, PreHeaderBtn } from './components'
 
 import { changeComponentsType } from '@store/actions/settings'

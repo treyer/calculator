@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import { KeyBody, KeyText } from './components'
 
 function Key({ children, title, type, payload, execute }) {

@@ -2,7 +2,7 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import {
   ExpressionOutput,
   Output,

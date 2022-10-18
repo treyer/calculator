@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import FlexClass from '@/components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import DisplayClass from '@components/Display/DisplayClass'
 import KeypadClass from '@components/Keypad/KeypadClass'
 import HistoryClass from '@components/History/HistoryClass'

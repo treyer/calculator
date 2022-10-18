@@ -3,8 +3,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import Flex from '@components/Flex/Flex'
-import SwitchPanel from '@components/SwitchPanel/SwitchPanel'
+import Flex from '@wrappers/Flex/Flex'
+import SwitchPanel from '@controls/SwitchPanel/SwitchPanel'
 
 import {
   changeCalculatorType,

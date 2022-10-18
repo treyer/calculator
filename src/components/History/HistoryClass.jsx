@@ -10,7 +10,7 @@ import {
   ExpressionHistory,
   RemoveBtn,
 } from './components'
-import ResetHistoryButtonClass from '../ResetHistoryButton/ResetHistoryButtonClass'
+import ResetHistoryButtonClass from '@controls/ResetHistoryButton/ResetHistoryButtonClass'
 import { convertInputToString } from '@utils'
 import {
   clearExpression,
@@ -18,7 +18,7 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
-import HistoryBlockButtonClass from '../HistoryBlockButton/HistoryBlockButtonClass'
+import HistoryBlockButtonClass from '../controls/HistoryBlockButton/HistoryBlockButtonClass'
 
 class HistoryClass extends React.Component {
   constructor(props) {

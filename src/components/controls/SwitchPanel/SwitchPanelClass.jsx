@@ -2,8 +2,8 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import SwitcherClass from '@components/Switcher/SwitcherClass'
-import FlexClass from '@components/Flex/FlexClass'
+import SwitcherClass from '@controls/Switcher/SwitcherClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import {
   PanelLabel,
   PanelText,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import Display from '@components/Display/Display'
 import Keypad from '@components/Keypad/Keypad'
 import History from '@components/History/History'

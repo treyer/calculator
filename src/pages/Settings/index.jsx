@@ -10,9 +10,9 @@ import {
   Main,
   SettingsBox,
 } from './components'
-import Flex from '@components/Flex/Flex'
-import { ThemeSelect } from '@components/ThemeSelect'
-import { ResetButton } from '@components/ResetButton'
+import Flex from '@wrappers/Flex/Flex'
+import { ThemeSelect } from '@controls/ThemeSelect'
+import { ResetButton } from '@controls/ResetButton'
 
 export default () => {
   return (

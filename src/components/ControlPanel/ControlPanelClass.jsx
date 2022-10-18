@@ -3,8 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import FlexClass from '@components/Flex/FlexClass'
-import SwitchPanelClass from '@components/SwitchPanel/SwitchPanelClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
+import SwitchPanelClass from '@controls/SwitchPanel/SwitchPanelClass'
 
 import {
   changeCalculatorType,

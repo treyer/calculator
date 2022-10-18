@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import FlexClass from '@components/Flex/FlexClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
 import { Button } from './components'
 
 import {

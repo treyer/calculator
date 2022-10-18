@@ -10,7 +10,7 @@ import {
   HistoryWrapper,
   RemoveBtn,
 } from './components'
-import ResetHistoryButton from '@components/ResetHistoryButton/ResetHistoryButton'
+import ResetHistoryButton from '@controls/ResetHistoryButton/ResetHistoryButton'
 
 import { convertInputToString } from '@utils'
 import {
@@ -19,7 +19,7 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
-import HistoryBlockButton from '../HistoryBlockButton/HistoryBlockButton'
+import HistoryBlockButton from '../controls/HistoryBlockButton/HistoryBlockButton'
 
 function History({ operationsHistory }) {
   const dispatch = useDispatch()

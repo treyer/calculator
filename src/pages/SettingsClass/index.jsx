@@ -10,9 +10,9 @@ import {
   Main,
   SettingsBox,
 } from '@pages/Settings/components'
-import FlexClass from '@components/Flex/FlexClass'
-import ThemeSelectClass from '@components/ThemeSelect/ThemeSelectClass'
-import ResetButtonClass from '@components/ResetButton/ResetButtonClass'
+import FlexClass from '@wrappers/Flex/FlexClass'
+import ThemeSelectClass from '@controls/ThemeSelect/ThemeSelectClass'
+import ResetButtonClass from '@controls/ResetButton/ResetButtonClass'
 
 export default class SettingsClass extends React.Component {
   render() {

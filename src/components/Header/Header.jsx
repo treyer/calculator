@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import Logo from '@components/Logo/Logo'
 import { Menu } from '@components/Menu'
 import { HeaderWrapper, HeaderInner } from './components'

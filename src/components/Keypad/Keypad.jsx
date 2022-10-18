@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Key from '@components/Key/Key'
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import { Grid } from './components'
 
 import { KEYS, KEYS_ADVANCED } from '@/constants'

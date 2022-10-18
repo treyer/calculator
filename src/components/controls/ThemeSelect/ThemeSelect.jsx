@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import Flex from '@components/Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import {
   OptionsWrapper,
   Select,

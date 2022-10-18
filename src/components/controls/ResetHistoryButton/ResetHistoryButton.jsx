@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Flex from '../Flex/Flex'
+import Flex from '@wrappers/Flex/Flex'
 import { Button } from './components'
 
 function ResetHistoryButton({ handleResetCallback }) {
