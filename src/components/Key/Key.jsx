@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Flex from '@wrappers/Flex/Flex'
 import { KeyBody, KeyText } from './components'
 
+import { useFlashButton } from '@/hooks/useFlashButton'
+
 function Key({ children, title, type, payload, execute }) {
   const [isError, setIsError] = useState(false)
 
-  useEffect(() => {
-    if (isError === true) {
-      setTimeout(() => {
-        setIsError(false)
-      }, 200)
-    }
-  })
+  useFlashButton(isError, setIsError)
+
+  const handleKeyClick = () => {
+    execute({
+      type: type,
+      payload: payload,
+      callback: setIsError,
+    })
+  }
 
   return (
     <KeyBody
       className={isError && 'error'}
       title={title}
-      onClick={() =>
-        execute({
-          type: type,
-          payload: payload,
-          callback: setIsError,
-        })
-      }>
+      onClick={handleKeyClick}>
       <Flex justify="center">
         <KeyText>{children}</KeyText>
       </Flex>

@@ -11,17 +11,34 @@ class KeyClass extends React.Component {
       isError: false,
     }
     this.setIsError = this.setIsError.bind(this)
+    this.handleKeyClick = this.handleKeyClick.bind(this)
   }
 
   setIsError() {
     this.setState({ isError: true })
   }
 
+  handleKeyClick() {
+    this.props.execute({
+      type: this.props.type,
+      payload: this.props.payload,
+      callback: this.setIsError,
+    })
+  }
+
   componentDidUpdate() {
     if (this.state.isError === true) {
-      setTimeout(() => {
+      this.timerHandle = setTimeout(() => {
         this.setState({ isError: false })
+        this.timerHandle = 0
       }, 200)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle)
+      this.timerHandle = 0
     }
   }
 
@@ -30,13 +47,7 @@ class KeyClass extends React.Component {
       <KeyBody
         className={this.state.isError && 'error'}
         title={this.props.title}
-        onClick={() =>
-          this.props.execute({
-            type: this.props.type,
-            payload: this.props.payload,
-            callback: this.setIsError,
-          })
-        }>
+        onClick={this.handleKeyClick}>
         <FlexClass justify="center">
           <KeyText>{this.props.children}</KeyText>
         </FlexClass>

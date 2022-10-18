@@ -1,12 +1,12 @@
 import React, { lazy, Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
+import Loader from '@components/Loader'
+
 import {
   HOME_PAGE_ROUTE,
   SETTINGS_PAGE_ROUTE,
 } from '@constants'
-
-import Loader from '@components/Loader'
 
 const HomePage = lazy(() => import('@pages/HomeClass'))
 const SettingsPage = lazy(() =>
