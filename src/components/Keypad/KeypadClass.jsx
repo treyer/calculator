@@ -7,7 +7,12 @@ import KeyClass from '@components/Key/KeyClass'
 import FlexClass from '@wrappers/Flex/FlexClass'
 import { Grid } from './components'
 
-import { KEYS, KEYS_ADVANCED } from '@/constants'
+import {
+  CALCULATOR_TYPE_BASIC,
+  KEYS,
+  KEYS_ADVANCED,
+  CALCULATOR_TYPE_ADVANCED,
+} from '@constants'
 
 class KeypadClass extends React.Component {
   constructor(props) {
@@ -26,11 +31,12 @@ class KeypadClass extends React.Component {
     return (
       <Grid
         className={
-          this.props.calculatorType === 'advanced' &&
-          'advanced'
+          this.props.calculatorType ===
+            CALCULATOR_TYPE_ADVANCED && 'advanced'
         }
         data-cy="keypad-class">
-        {this.props.calculatorType === 'basic' &&
+        {this.props.calculatorType ===
+          CALCULATOR_TYPE_BASIC &&
           KEYS.map(key => (
             <FlexClass key={key.id} justify="center">
               <KeyClass
@@ -42,7 +48,8 @@ class KeypadClass extends React.Component {
               </KeyClass>
             </FlexClass>
           ))}
-        {this.props.calculatorType === 'advanced' &&
+        {this.props.calculatorType ===
+          CALCULATOR_TYPE_ADVANCED &&
           KEYS_ADVANCED.map(key => (
             <FlexClass key={key.id} justify="center">
               <KeyClass

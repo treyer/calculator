@@ -20,6 +20,7 @@ import {
   updateUserInput,
 } from '@store/actions/data'
 import HistoryBlockButton from '../controls/HistoryBlockButton/HistoryBlockButton'
+import { EXPRESSION_TYPE_COMPLEX } from '@constants'
 
 function History({ operationsHistory }) {
   const dispatch = useDispatch()
@@ -34,7 +35,7 @@ function History({ operationsHistory }) {
     userInput,
     index,
   ) => {
-    if (expressionType === 'complex') {
+    if (expressionType === EXPRESSION_TYPE_COMPLEX) {
       dispatch(updateUserInput(userInput))
       dispatch(clearExpression())
     } else {

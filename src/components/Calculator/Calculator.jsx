@@ -23,6 +23,8 @@ import {
   brackets,
   numberConstants,
   operators,
+  EXPRESSION_TYPE_SIMPLE,
+  EXPRESSION_TYPE_COMPLEX,
 } from '@constants'
 import {
   isInputComplete,
@@ -88,7 +90,7 @@ export const Calculator = () => {
     },
     addOperator: (operator, setIsError) => {
       if (
-        expressionType === 'simple' &&
+        expressionType === EXPRESSION_TYPE_SIMPLE &&
         userInput.length === 3
       ) {
         if (isInputComplete(userInput)) {
@@ -120,7 +122,7 @@ export const Calculator = () => {
       }
     },
     addBracket: (bracket, setIsError) => {
-      if (expressionType === 'complex') {
+      if (expressionType === EXPRESSION_TYPE_COMPLEX) {
         const res = handleAddBracket(
           brackets[bracket],
           userInput,

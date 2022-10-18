@@ -11,6 +11,7 @@ import {
 
 import { initializeChangeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
+import { THEME_DARK, THEME_LIGHT } from '@constants'
 
 class ThemeSelectClass extends React.Component {
   constructor(props) {
@@ -86,7 +87,7 @@ class ThemeSelectClass extends React.Component {
             <SelectOption
               onClick={this.handleThemeChange}
               className={
-                this.props.theme === 'light' && 'hidden'
+                this.props.theme === THEME_LIGHT && 'hidden'
               }
               data-cy="option-select-light-class">
               <FlexClass>Light theme</FlexClass>
@@ -94,7 +95,7 @@ class ThemeSelectClass extends React.Component {
             <SelectOption
               onClick={this.handleThemeChange}
               className={
-                this.props.theme === 'dark' && 'hidden'
+                this.props.theme === THEME_DARK && 'hidden'
               }
               data-cy="option-select-dark-class">
               <FlexClass>Dark theme</FlexClass>

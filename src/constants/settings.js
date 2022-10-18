@@ -1,0 +1,8 @@
+export const APP_TYPE_FUNCTIONAL = 'functional'
+export const APP_TYPE_CLASS = 'class'
+export const THEME_LIGHT = 'light'
+export const THEME_DARK = 'dark'
+export const EXPRESSION_TYPE_SIMPLE = 'simple'
+export const EXPRESSION_TYPE_COMPLEX = 'complex'
+export const CALCULATOR_TYPE_BASIC = 'basic'
+export const CALCULATOR_TYPE_ADVANCED = 'advanced'

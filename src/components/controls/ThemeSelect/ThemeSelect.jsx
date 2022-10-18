@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-
 import { useSelector, useDispatch } from 'react-redux'
 
 import Flex from '@wrappers/Flex/Flex'
@@ -12,6 +11,7 @@ import {
 import { initializeChangeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
 import { useClickOutside } from '@/hooks/useClickOutside'
+import { THEME_DARK, THEME_LIGHT } from '@constants'
 
 export const ThemeSelect = () => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false)
@@ -39,13 +39,13 @@ export const ThemeSelect = () => {
         <OptionsWrapper>
           <SelectOption
             onClick={handleThemeChange}
-            className={theme === 'light' && 'hidden'}
+            className={theme === THEME_LIGHT && 'hidden'}
             data-cy="option-select-light">
             <Flex>Light theme</Flex>
           </SelectOption>
           <SelectOption
             onClick={handleThemeChange}
-            className={theme === 'dark' && 'hidden'}
+            className={theme === THEME_DARK && 'hidden'}
             data-cy="option-select-dark">
             <Flex>Dark theme</Flex>
           </SelectOption>

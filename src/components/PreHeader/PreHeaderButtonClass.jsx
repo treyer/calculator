@@ -7,6 +7,10 @@ import FlexClass from '@wrappers/Flex/FlexClass'
 import { ButtonText, PreHeaderBtn } from './components'
 
 import { changeComponentsType } from '@store/actions/settings'
+import {
+  APP_TYPE_CLASS,
+  APP_TYPE_FUNCTIONAL,
+} from '@constants'
 
 class PreHeaderButton extends React.Component {
   constructor(props) {
@@ -16,8 +20,8 @@ class PreHeaderButton extends React.Component {
     )
   }
 
-  handleAppTypeChange = newType => {
-    if (newType !== this.props.appType) {
+  handleAppTypeChange = () => {
+    if (this.props.btnType !== this.props.appType) {
       this.props.changeComponentsType()
     }
   }
@@ -29,9 +33,7 @@ class PreHeaderButton extends React.Component {
           this.props.appType === this.props.btnType &&
           'active'
         }
-        onClick={() =>
-          this.handleAppTypeChange(this.props.btnType)
-        }>
+        onClick={this.handleAppTypeChange}>
         <FlexClass justify="center">
           <ButtonText>{this.props.children}</ButtonText>
         </FlexClass>
@@ -42,7 +44,10 @@ class PreHeaderButton extends React.Component {
 
 PreHeaderButton.propTypes = {
   children: PropTypes.string.isRequired,
-  btnType: PropTypes.oneOf(['functional', 'class']),
+  btnType: PropTypes.oneOf([
+    APP_TYPE_FUNCTIONAL,
+    APP_TYPE_CLASS,
+  ]),
 }
 
 const mapStateToProps = state => ({

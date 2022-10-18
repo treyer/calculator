@@ -11,6 +11,10 @@ import {
   changeExpressionType,
 } from '@store/actions/settings'
 import { PanelWrapper } from './components'
+import {
+  EXPRESSION_TYPE_COMPLEX,
+  CALCULATOR_TYPE_ADVANCED,
+} from '@constants'
 
 class ControlPanelClass extends React.Component {
   constructor(props) {
@@ -24,13 +28,17 @@ class ControlPanelClass extends React.Component {
   }
 
   ChangeExpressionType = () => {
-    if (this.props.expressionType === 'complex')
+    if (
+      this.props.expressionType === EXPRESSION_TYPE_COMPLEX
+    )
       this.props.clearAll()
     this.props.changeExpressionType()
   }
 
   ChangeCalculatorType = () => {
-    if (this.props.calculatorType === 'advanced')
+    if (
+      this.props.calculatorType === CALCULATOR_TYPE_ADVANCED
+    )
       this.props.clearAll()
     this.props.changeCalculatorType()
   }
@@ -44,7 +52,8 @@ class ControlPanelClass extends React.Component {
             textBefore="basic"
             textAfter="advanced"
             isChecked={
-              this.props.calculatorType === 'advanced'
+              this.props.calculatorType ===
+              CALCULATOR_TYPE_ADVANCED
             }
             callback={this.ChangeCalculatorType}
           />
@@ -53,7 +62,8 @@ class ControlPanelClass extends React.Component {
             textBefore="simple"
             textAfter="complex"
             isChecked={
-              this.props.expressionType === 'complex'
+              this.props.expressionType ===
+              EXPRESSION_TYPE_COMPLEX
             }
             callback={this.ChangeExpressionType}
           />

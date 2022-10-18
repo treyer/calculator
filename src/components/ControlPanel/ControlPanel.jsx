@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -11,6 +10,10 @@ import {
   changeExpressionType,
 } from '@store/actions/settings'
 import { PanelWrapper } from './components'
+import {
+  EXPRESSION_TYPE_COMPLEX,
+  CALCULATOR_TYPE_ADVANCED,
+} from '@constants'
 
 function ControlPanel({ clearAll }) {
   const { expressionType } = useSelector(
@@ -22,12 +25,14 @@ function ControlPanel({ clearAll }) {
   const dispatch = useDispatch()
 
   const ChangeExpressionType = () => {
-    if (expressionType === 'complex') clearAll()
+    if (expressionType === EXPRESSION_TYPE_COMPLEX)
+      clearAll()
     dispatch(changeExpressionType())
   }
 
   const ChangeCalculatorType = () => {
-    if (calculatorType === 'advanced') clearAll()
+    if (calculatorType === CALCULATOR_TYPE_ADVANCED)
+      clearAll()
     dispatch(changeCalculatorType())
   }
 
@@ -38,14 +43,18 @@ function ControlPanel({ clearAll }) {
           label="Calculator type:"
           textBefore="basic"
           textAfter="advanced"
-          isChecked={calculatorType === 'advanced'}
+          isChecked={
+            calculatorType === CALCULATOR_TYPE_ADVANCED
+          }
           callback={ChangeCalculatorType}
         />
         <SwitchPanel
           label="Expressions mode:"
           textBefore="simple"
           textAfter="complex"
-          isChecked={expressionType === 'complex'}
+          isChecked={
+            expressionType === EXPRESSION_TYPE_COMPLEX
+          }
           callback={ChangeExpressionType}
         />
       </Flex>

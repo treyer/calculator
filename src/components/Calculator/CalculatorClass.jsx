@@ -24,6 +24,8 @@ import {
   brackets,
   numberConstants,
   operators,
+  EXPRESSION_TYPE_SIMPLE,
+  EXPRESSION_TYPE_COMPLEX,
 } from '@constants'
 import {
   calculateExpression,
@@ -99,7 +101,8 @@ class CalculatorClass extends React.Component {
     },
     addOperator: (operator, setIsError) => {
       if (
-        this.props.expressionType === 'simple' &&
+        this.props.expressionType ===
+          EXPRESSION_TYPE_SIMPLE &&
         this.props.userInput.length === 3
       ) {
         if (isInputComplete(this.props.userInput)) {
@@ -131,7 +134,10 @@ class CalculatorClass extends React.Component {
       }
     },
     addBracket: (bracket, setIsError) => {
-      if (this.props.expressionType === 'complex') {
+      if (
+        this.props.expressionType ===
+        EXPRESSION_TYPE_COMPLEX
+      ) {
         const res = handleAddBracket(
           brackets[bracket],
           this.props.userInput,

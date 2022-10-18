@@ -7,14 +7,21 @@ import Key from '@components/Key/Key'
 import Flex from '@wrappers/Flex/Flex'
 import { Grid } from './components'
 
-import { KEYS, KEYS_ADVANCED } from '@/constants'
+import {
+  CALCULATOR_TYPE_BASIC,
+  KEYS,
+  KEYS_ADVANCED,
+  CALCULATOR_TYPE_ADVANCED,
+} from '@constants'
 
 const Keypad = ({ operations }) => {
   const { calculatorType } = useSelector(
     state => state.settings,
   )
   const keysMap =
-    calculatorType === 'basic' ? KEYS : KEYS_ADVANCED
+    calculatorType === CALCULATOR_TYPE_BASIC
+      ? KEYS
+      : KEYS_ADVANCED
 
   const execute = action => {
     operations[action.type](action.payload, action.callback)
@@ -23,7 +30,8 @@ const Keypad = ({ operations }) => {
   return (
     <Grid
       className={
-        calculatorType === 'advanced' && 'advanced'
+        calculatorType === CALCULATOR_TYPE_ADVANCED &&
+        'advanced'
       }
       data-cy="keypad">
       {keysMap.map(key => (

@@ -19,6 +19,7 @@ import {
   updateUserInput,
 } from '@store/actions/data'
 import HistoryBlockButtonClass from '../controls/HistoryBlockButton/HistoryBlockButtonClass'
+import { EXPRESSION_TYPE_COMPLEX } from '@/constants'
 
 class HistoryClass extends React.Component {
   constructor(props) {
@@ -52,7 +53,9 @@ class HistoryClass extends React.Component {
   }
 
   handleSetHistoryExprAsCurrent = (userInput, index) => {
-    if (this.props.expressionType === 'complex') {
+    if (
+      this.props.expressionType === EXPRESSION_TYPE_COMPLEX
+    ) {
       this.props.updateUserInput(userInput)
       this.props.clearExpression()
     } else {
