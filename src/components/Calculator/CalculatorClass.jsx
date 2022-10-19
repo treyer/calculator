@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 
 import FlexClass from '@wrappers/Flex/FlexClass'
 import DisplayClass from '@components/Display/DisplayClass'
@@ -61,6 +62,7 @@ class CalculatorClass extends React.Component {
 
   addExpressionToHistory = (expr, res) => {
     this.props.addHistoryItem({
+      id: uuidv4(),
       expression: expr,
       result: res,
     })

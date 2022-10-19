@@ -1,16 +1,15 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import FlexClass from '@wrappers/Flex/FlexClass'
 import SwitchPanelClass from '@controls/SwitchPanel/SwitchPanelClass'
+import { PanelWrapper } from './components'
 
 import {
   changeCalculatorType,
   changeExpressionType,
 } from '@store/actions/settings'
-import { PanelWrapper } from './components'
 import {
   EXPRESSION_TYPE_COMPLEX,
   CALCULATOR_TYPE_ADVANCED,

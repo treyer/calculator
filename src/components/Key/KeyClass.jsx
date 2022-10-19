@@ -30,7 +30,7 @@ class KeyClass extends React.Component {
     if (this.state.isError === true) {
       this.timerHandle = setTimeout(() => {
         this.setState({ isError: false })
-        this.timerHandle = 0
+        this.timerHandle = null
       }, 200)
     }
   }
@@ -38,7 +38,7 @@ class KeyClass extends React.Component {
   componentWillUnmount() {
     if (this.timerHandle) {
       clearTimeout(this.timerHandle)
-      this.timerHandle = 0
+      this.timerHandle = null
     }
   }
 

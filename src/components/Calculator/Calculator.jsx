@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 
 import Flex from '@wrappers/Flex/Flex'
 import Display from '@components/Display/Display'
@@ -55,7 +56,11 @@ export const Calculator = () => {
 
   const addExpressionToHistory = (expr, res) => {
     dispatch(
-      addHistoryItem({ expression: expr, result: res }),
+      addHistoryItem({
+        id: uuidv4(),
+        expression: expr,
+        result: res,
+      }),
     )
   }
 

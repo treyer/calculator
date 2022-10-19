@@ -2,6 +2,9 @@ import React from 'react'
 
 import { ErrorBoundary } from '@components/ErrorBoundary'
 import { PageLayout } from '@layouts/PageLayout'
+import FlexClass from '@wrappers/Flex/FlexClass'
+import ThemeSelectClass from '@controls/ThemeSelect/ThemeSelectClass'
+import ResetButtonClass from '@controls/ResetButton/ResetButtonClass'
 import {
   Card,
   Heading,
@@ -10,9 +13,6 @@ import {
   Main,
   SettingsBox,
 } from '@pages/Settings/components'
-import FlexClass from '@wrappers/Flex/FlexClass'
-import ThemeSelectClass from '@controls/ThemeSelect/ThemeSelectClass'
-import ResetButtonClass from '@controls/ResetButton/ResetButtonClass'
 
 export default class SettingsClass extends React.Component {
   render() {

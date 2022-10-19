@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -30,11 +29,11 @@ class KeypadClass extends React.Component {
   render() {
     return (
       <Grid
+        data-cy="keypad-class"
         className={
           this.props.calculatorType ===
             CALCULATOR_TYPE_ADVANCED && 'advanced'
-        }
-        data-cy="keypad-class">
+        }>
         {this.props.calculatorType ===
           CALCULATOR_TYPE_BASIC &&
           KEYS.map(key => (

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-
+import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import ResetHistoryButton from '@controls/ResetHistoryButton/ResetHistoryButton'
+import HistoryBlockButton from '@controls/HistoryBlockButton/HistoryBlockButton'
 import {
   ContentBox,
   ExpressionHistory,
@@ -10,7 +11,6 @@ import {
   HistoryWrapper,
   RemoveBtn,
 } from './components'
-import ResetHistoryButton from '@controls/ResetHistoryButton/ResetHistoryButton'
 
 import { convertInputToString } from '@utils'
 import {
@@ -19,8 +19,8 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
-import HistoryBlockButton from '../controls/HistoryBlockButton/HistoryBlockButton'
 import { EXPRESSION_TYPE_COMPLEX } from '@constants'
+import { useFlashButton } from '@/hooks/useFlashButton'
 
 function History({ operationsHistory }) {
   const dispatch = useDispatch()
@@ -34,7 +34,7 @@ function History({ operationsHistory }) {
   const handleSetHistoryExprAsCurrent = (
     userInput,
     index,
-  ) => {
+  ) => () => {
     if (expressionType === EXPRESSION_TYPE_COMPLEX) {
       dispatch(updateUserInput(userInput))
       dispatch(clearExpression())
@@ -52,8 +52,9 @@ function History({ operationsHistory }) {
     }
   }
 
-  const handleRemoveHistoryExpr = (event, index) => {
+  const handleRemoveHistoryExpr = event => {
     event.stopPropagation()
+    const { index } = event.target.dataset
     dispatch(removeHistoryItem(index))
   }
 
@@ -67,14 +68,7 @@ function History({ operationsHistory }) {
     setIsShown(prev => !prev)
   }
 
-  useEffect(() => {
-    if (isError === true) {
-      setTimeout(() => {
-        errorItemIndex.current = -1
-        setIsError(false)
-      }, 200)
-    }
-  })
+  useFlashButton(isError, setIsError)
 
   return (
     <HistoryWrapper data-cy="history" isShown={isShown}>
@@ -91,27 +85,24 @@ function History({ operationsHistory }) {
       <ContentBox
         data-cy="history-content-box"
         isShown={isShown}>
-        {operationsHistory.map((item, index) => (
+        {operationsHistory.map(item => (
           <ExpressionHistory
             className={
               isError &&
-              errorItemIndex.current === index &&
+              errorItemIndex.current === item.id &&
               'error'
             }
-            key={index}
-            onClick={() =>
-              handleSetHistoryExprAsCurrent(
-                item.expression,
-                index,
-              )
-            }>
+            key={item.id}
+            onClick={handleSetHistoryExprAsCurrent(
+              item.expression,
+              item.id,
+            )}>
             {`${convertInputToString(item.expression)}= ${
               item.result
             }`}
             <RemoveBtn
-              onClick={event => {
-                handleRemoveHistoryExpr(event, index)
-              }}>
+              data-index={item.id}
+              onClick={handleRemoveHistoryExpr}>
               ✖
             </RemoveBtn>
           </ExpressionHistory>
@@ -124,6 +115,7 @@ function History({ operationsHistory }) {
 History.propTypes = {
   operationsHistory: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string,
       expression: PropTypes.array,
       result: PropTypes.string,
     }),

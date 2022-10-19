@@ -33,7 +33,7 @@ export default handleActions(
       return {
         ...state,
         historyArr: state.historyArr.filter(
-          (el, index) => index !== action.payload,
+          el => el.id !== action.payload,
         ),
       }
     },

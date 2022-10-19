@@ -2,6 +2,9 @@ import React from 'react'
 
 import { ErrorBoundary } from '@components/ErrorBoundary'
 import { PageLayout } from '@layouts/PageLayout'
+import Flex from '@wrappers/Flex/Flex'
+import { ThemeSelect } from '@controls/ThemeSelect'
+import { ResetButton } from '@controls/ResetButton'
 import {
   Card,
   Heading,
@@ -10,9 +13,6 @@ import {
   Main,
   SettingsBox,
 } from './components'
-import Flex from '@wrappers/Flex/Flex'
-import { ThemeSelect } from '@controls/ThemeSelect'
-import { ResetButton } from '@controls/ResetButton'
 
 export default () => {
   return (

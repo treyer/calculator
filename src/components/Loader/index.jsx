@@ -1,8 +1,8 @@
 import React from 'react'
 
-import theme from '@/theme'
-
 import { Loader } from './components'
+
+import theme from '@/theme'
 
 const LOADER_SIZE = 100
 

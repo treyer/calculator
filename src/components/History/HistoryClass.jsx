@@ -3,6 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import ResetHistoryButtonClass from '@controls/ResetHistoryButton/ResetHistoryButtonClass'
+import HistoryBlockButtonClass from '@controls/HistoryBlockButton/HistoryBlockButtonClass'
 import {
   ContentBox,
   Heading,
@@ -10,7 +12,6 @@ import {
   ExpressionHistory,
   RemoveBtn,
 } from './components'
-import ResetHistoryButtonClass from '@controls/ResetHistoryButton/ResetHistoryButtonClass'
 import { convertInputToString } from '@utils'
 import {
   clearExpression,
@@ -18,7 +19,6 @@ import {
   removeHistoryItem,
   updateUserInput,
 } from '@store/actions/data'
-import HistoryBlockButtonClass from '../controls/HistoryBlockButton/HistoryBlockButtonClass'
 import { EXPRESSION_TYPE_COMPLEX } from '@/constants'
 
 class HistoryClass extends React.Component {
@@ -45,14 +45,25 @@ class HistoryClass extends React.Component {
 
   componentDidUpdate() {
     if (this.state.isError === true) {
-      setTimeout(() => {
+      this.timerHandle = setTimeout(() => {
         this.errorItemIndex = -1
         this.setState({ isError: false })
+        this.timerHandle = null
       }, 200)
     }
   }
 
-  handleSetHistoryExprAsCurrent = (userInput, index) => {
+  componentWillUnmount() {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle)
+      this.timerHandle = null
+    }
+  }
+
+  handleSetHistoryExprAsCurrent = (
+    userInput,
+    index,
+  ) => () => {
     if (
       this.props.expressionType === EXPRESSION_TYPE_COMPLEX
     ) {
@@ -72,8 +83,9 @@ class HistoryClass extends React.Component {
     }
   }
 
-  handleRemoveHistoryExpr = (event, index) => {
+  handleRemoveHistoryExpr = event => {
     event.stopPropagation()
+    const { index } = event.target.dataset
     this.props.removeHistoryItem(index)
   }
 
@@ -107,45 +119,38 @@ class HistoryClass extends React.Component {
         <ContentBox
           data-cy="history-content-box-class"
           isShown={this.state.isShown}>
-          {this.props.operationsHistory.map(
-            (item, index) => (
-              <ExpressionHistory
-                key={index}
-                className={
-                  this.state.isError &&
-                  this.errorItemIndex === index &&
-                  'error'
-                }
-                onClick={() =>
-                  this.handleSetHistoryExprAsCurrent(
-                    item.expression,
-                    index,
-                  )
-                }>
-                {`${convertInputToString(
-                  item.expression,
-                )}= ${item.result}`}
-                <RemoveBtn
-                  onClick={event => {
-                    this.handleRemoveHistoryExpr(
-                      event,
-                      index,
-                    )
-                  }}>
-                  ✖
-                </RemoveBtn>
-              </ExpressionHistory>
-            ),
-          )}
+          {this.props.operationsHistory.map(item => (
+            <ExpressionHistory
+              key={item.id}
+              className={
+                this.state.isError &&
+                this.errorItemIndex === item.id &&
+                'error'
+              }
+              onClick={this.handleSetHistoryExprAsCurrent(
+                item.expression,
+                item.id,
+              )}>
+              {`${convertInputToString(item.expression)}= ${
+                item.result
+              }`}
+              <RemoveBtn
+                data-index={item.id}
+                onClick={this.handleRemoveHistoryExpr}>
+                ✖
+              </RemoveBtn>
+            </ExpressionHistory>
+          ))}
         </ContentBox>
       </HistoryWrapper>
     )
   }
 }
 
-History.propTypes = {
+HistoryClass.propTypes = {
   operationsHistory: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string,
       expression: PropTypes.array,
       result: PropTypes.string,
     }),

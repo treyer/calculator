@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 
 import Flex from '@wrappers/Flex/Flex'
 import SwitchPanel from '@controls/SwitchPanel/SwitchPanel'
+import { PanelWrapper } from './components'
 
 import {
   changeCalculatorType,
   changeExpressionType,
 } from '@store/actions/settings'
-import { PanelWrapper } from './components'
 import {
   EXPRESSION_TYPE_COMPLEX,
   CALCULATOR_TYPE_ADVANCED,
