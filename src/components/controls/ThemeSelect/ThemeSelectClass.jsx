@@ -8,7 +8,7 @@ import {
   SelectOption,
 } from './components'
 
-import { initializeChangeTheme } from '@store/actions/settings'
+import { changeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
 import { THEME_DARK, THEME_LIGHT } from '@constants'
 
@@ -37,6 +37,12 @@ class ThemeSelectClass extends React.Component {
       'touchstart',
       this.handleClickOutside,
     )
+
+    localStorage.setItem('theme', this.props.theme)
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('theme', this.props.theme)
   }
 
   componentWillUnmount() {
@@ -60,7 +66,7 @@ class ThemeSelectClass extends React.Component {
   }
 
   handleThemeChange = () => {
-    this.props.initializeChangeTheme()
+    this.props.changeTheme()
   }
 
   handleSelectClick = () => {
@@ -111,7 +117,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = () => ({
-  initializeChangeTheme,
+  changeTheme,
 })
 
 export default connect(

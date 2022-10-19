@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Flex from '@wrappers/Flex/Flex'
@@ -8,7 +8,7 @@ import {
   SelectOption,
 } from './components'
 
-import { initializeChangeTheme } from '@store/actions/settings'
+import { changeTheme } from '@store/actions/settings'
 import { capitalizeFirstLetter } from '@utils'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import { THEME_DARK, THEME_LIGHT } from '@constants'
@@ -21,8 +21,12 @@ export const ThemeSelect = () => {
   useClickOutside(selectEl, () => setIsOptionsOpen(false))
 
   const handleThemeChange = () => {
-    dispatch(initializeChangeTheme())
+    dispatch(changeTheme())
   }
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  }, [theme])
 
   const handleSelectClick = () => {
     setIsOptionsOpen(prev => !prev)
