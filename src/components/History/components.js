@@ -5,9 +5,10 @@ export const HistoryWrapper = styled.div`
 
   box-sizing: border-box;
   width: ${({ isShown }) => (isShown ? '391px' : '1px')};
-  height: calc(100vh - 224px);
-  max-height: 1120px;
-  margin-left: 22px;
+  height: calc(100vh - ${({ theme }) => theme.sizes[13]}px);
+  max-height: ${({ theme }) => theme.sizes[20]}px;
+  margin-left: ${({ theme }) =>
+    theme.additionalSpaces[1] + 2}px;
 
   border-left: 3px solid
     ${({ theme }) => theme.colors.borderButton};
@@ -17,7 +18,8 @@ export const HistoryWrapper = styled.div`
 
 export const Heading = styled.h3`
   display: ${({ isShown }) => (isShown ? 'block' : 'none')};
-  margin-top: 11px;
+  margin-top: ${({ theme }) =>
+    theme.additionalSpaces[0] + 1}px;
 
   font-weight: ${({ theme }) => theme.fontWeights[3]};
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
@@ -30,10 +32,11 @@ export const Heading = styled.h3`
 
 export const ContentBox = styled.div`
   display: ${({ isShown }) => (isShown ? 'block' : 'none')};
-  width: 324px;
-  height: calc(100vh - 340px);
-  margin-top: 56px;
-  margin-left: 52px;
+  width: ${({ theme }) => theme.sizes[15]}px;
+  height: calc(100vh - ${({ theme }) => theme.sizes[16]}px);
+  margin-top: ${({ theme }) => theme.additionalSpaces[6]}px;
+  margin-left: ${({ theme }) =>
+    theme.additionalSpaces[6] - 4}px;
 
   overflow-y: scroll;
 
@@ -41,18 +44,18 @@ export const ContentBox = styled.div`
   transition-delay: 0.6s;
 
   &::-webkit-scrollbar {
-    width: 12px;
+    width: ${({ theme }) => theme.sizes[0]}px;
   }
 
   &::-webkit-scrollbar-track {
-    width: 12px;
+    width: ${({ theme }) => theme.sizes[0]}px;
     background-color: ${({ theme }) =>
       theme.colors.bgScrollbarTrack};
   }
 
   &::-webkit-scrollbar-thumb {
-    width: 12px;
-    border-radius: 6px;
+    width: ${({ theme }) => theme.sizes[0]}px;
+    border-radius: ${({ theme }) => theme.radiuses[0]}px;
     background-color: ${({ theme }) =>
       theme.colors.bgScrollbar};
   }
@@ -66,15 +69,16 @@ export const ContentBox = styled.div`
 export const ExpressionHistory = styled.h5`
   position: relative;
 
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: ${({ theme }) =>
+    theme.additionalSpaces[0]}px;
+  padding: ${({ theme }) => theme.spaces[1] + 1}px;
 
   font-weight: ${({ theme }) => theme.fontWeights[3]};
-  font-size: 30px;
+  font-size: ${({ theme }) => theme.fontSizes[5] - 2}px;
 
   cursor: pointer;
 
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radiuses[0] - 1}px;
 
   &.error,
   &.error:hover {
@@ -91,11 +95,11 @@ export const ExpressionHistory = styled.h5`
 
 export const RemoveBtn = styled.div`
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: ${({ theme }) => theme.spaces[1] - 1}px;
+  right: ${({ theme }) => theme.spaces[1] - 1}px;
 
-  font-size: 15px;
-  line-height: 15px;
+  font-size: ${({ theme }) => theme.fontSizes[1] + 1}px;
+  line-height: ${({ theme }) => theme.fontSizes[1] + 1}px;
 
   color: ${({ theme }) => theme.colors.fontColorRemoveBtn};
   opacity: 0.5;

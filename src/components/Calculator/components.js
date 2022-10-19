@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CalculatorWrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 216px);
+  height: calc(100vh - ${({ theme }) => theme.sizes[12]}px);
 `
 
 export const CalculatorInner = styled.div`

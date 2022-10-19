@@ -4,9 +4,10 @@ export const Label = styled.label`
   position: relative;
 
   display: inline-block;
-  width: 60px;
-  height: 30px;
-  margin: 0 30px;
+  width: ${({ theme }) => theme.sizes[5]}px;
+  height: ${({ theme }) => theme.sizes[3]}px;
+  margin: 0
+    ${({ theme }) => theme.additionalSpaces[3] - 2}px;
 
   & input {
     width: 0;
@@ -47,7 +48,7 @@ export const Slider = styled.span`
 
   background-color: ${({ theme }) =>
     theme.colors.bgSwitcher};
-  border-radius: 30px;
+  border-radius: ${({ theme }) => theme.radiuses[2]}px;
 
   cursor: pointer;
   transition: 0.4s;
@@ -57,11 +58,11 @@ export const Slider = styled.span`
     content: '';
 
     position: absolute;
-    left: 4px;
-    bottom: 3px;
+    left: ${({ theme }) => theme.spaces[1]}px;
+    bottom: ${({ theme }) => theme.spaces[1] - 1}px;
 
-    height: 24px;
-    width: 24px;
+    height: ${({ theme }) => theme.sizes[2] - 1}px;
+    width: ${({ theme }) => theme.sizes[2] - 1}px;
 
     background-color: ${({ theme }) =>
       theme.colors.bgSwitcherThumb};

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import theme from '@/theme'
 
 export const HeaderWrapper = styled.header`
-  height: 120px;
-  min-width: 1150px;
+  height: ${({ theme }) => theme.sizes[9]}px;
+  min-width: ${({ theme }) => theme.sizes[21]}px;
 
   background-color: ${({ theme }) =>
     theme.colors.bgHeaderMain};

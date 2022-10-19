@@ -4,14 +4,14 @@ export const KeyBody = styled.div`
   box-sizing: border-box;
   width: calc(((100vh - 310px) / 4) * 0.8);
   height: calc(((100vh - 310px) / 4) * 0.8);
-  max-width: 150px;
-  max-height: 150px;
-  min-width: 55px;
-  min-height: 55px;
-  margin: 3px;
+  max-width: ${({ theme }) => theme.sizes[11]}px;
+  max-height: ${({ theme }) => theme.sizes[11]}px;
+  min-width: ${({ theme }) => theme.sizes[4]}px;
+  min-height: ${({ theme }) => theme.sizes[4]}px;
+  margin: ${({ theme }) => theme.spaces[1] - 1}px;
 
   border: 1px solid ${({ theme }) => theme.colors.borderKey};
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radiuses[1]}px;
   background-color: ${({ theme }) => theme.colors.bgButton};
 
   cursor: pointer;
@@ -42,7 +42,7 @@ export const KeyBody = styled.div`
 
 export const KeyText = styled.h5`
   font-weight: ${({ theme }) => theme.fontWeights[3]};
-  font-size: 48px;
+  font-size: ${({ theme }) => theme.fontSizes[6] + 8}px;
 
   color: ${({ theme }) => theme.colors.fontColorPrimary};
 `

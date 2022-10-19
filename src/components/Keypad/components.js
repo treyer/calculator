@@ -6,9 +6,10 @@ export const Grid = styled.div`
   grid-template-rows: repeat(4, 1fr);
 
   width: 100%;
-  height: calc(100vh - 340px);
-  max-height: 1000px;
-  margin: 0 34px;
+  height: calc(100vh - ${({ theme }) => theme.sizes[16]}px);
+  max-height: ${({ theme }) => theme.sizes[20] - 120}px;
+  margin: 0
+    ${({ theme }) => theme.additionalSpaces[3] + 2}px;
 
   &.advanced {
     grid-template-columns: repeat(6, 1fr);

@@ -4,8 +4,8 @@ import theme from '@/theme'
 
 export const PreHeaderWrapper = styled.div`
   width: 100%;
-  height: 30px;
-  min-width: 1150px;
+  height: ${({ theme }) => theme.sizes[3]}px;
+  min-width: ${({ theme }) => theme.sizes[21]}px;
 
   background-color: ${({ theme }) =>
     theme.colors.bgHeaderMain};
@@ -36,7 +36,7 @@ export const PreHeaderBtn = styled.div`
   }
 `
 export const ButtonText = styled.h4`
-  font-weight: 300;
+  font-weight: ${({ theme }) => theme.fontWeights[2]};
   font-size: ${theme.fontSizes[1]}px;
 
   color: ${theme.colors.fontColorSecondary};

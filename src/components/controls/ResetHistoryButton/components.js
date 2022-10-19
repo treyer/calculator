@@ -4,11 +4,14 @@ export const Button = styled.a`
   display: inline-block;
 
   box-sizing: border-box;
-  width: 100px;
-  height: 30px;
-  padding-left: 27px;
-  margin-left: 20px;
-  margin-bottom: 12px;
+  width: ${({ theme }) => theme.sizes[8]}px;
+  height: ${({ theme }) => theme.sizes[3]}px;
+  padding-left: ${({ theme }) =>
+    theme.additionalSpaces[2]}px;
+  margin-left: ${({ theme }) =>
+    theme.additionalSpaces[1]}px;
+  margin-bottom: ${({ theme }) =>
+    theme.additionalSpaces[0] + 2}px;
 
   font-size: ${({ theme }) => theme.fontSizes[3]}px;
 
@@ -16,7 +19,7 @@ export const Button = styled.a`
   background-color: ${({ theme }) => theme.colors.bgButton};
   border: 2px solid
     ${({ theme }) => theme.colors.borderButton};
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radiuses[1]}px;
 
   cursor: pointer;
 

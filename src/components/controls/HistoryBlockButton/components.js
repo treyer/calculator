@@ -5,14 +5,15 @@ export const Button = styled.div`
   left: ${({ isShown }) => (isShown ? '0' : '-40px')};
   top: 0;
 
-  width: 25px;
-  height: 25px;
-  margin-left: 5px;
+  width: ${({ theme }) => theme.sizes[2]}px;
+  height: ${({ theme }) => theme.sizes[2]}px;
+  margin-left: ${({ theme }) => theme.spaces[1]}px;
 
   background-image: url(/src/assets/img/svg/arrows-${({
       isShown,
     }) => (isShown ? 'right' : 'left')}.svg);
-  background-size: 25px 25px;
+  background-size: ${({ theme }) => theme.sizes[2]}px
+    ${({ theme }) => theme.sizes[2]}px;
 
   cursor: pointer;
 

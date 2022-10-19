@@ -4,18 +4,19 @@ export const Select = styled.div`
   position: relative;
 
   box-sizing: border-box;
-  width: 402px;
-  height: 94px;
+  width: ${({ theme }) => theme.sizes[18]}px;
+  height: ${({ theme }) => theme.sizes[7] + 4}px;
 
-  padding-left: 27px;
-  margin-bottom: 31px;
+  padding-left: ${({ theme }) =>
+    theme.additionalSpaces[2]}px;
+  margin-bottom: ${({ theme }) => theme.spaces[4] - 1}px;
 
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
 
   color: ${({ theme }) => theme.colors.fontColorPrimary};
   border: 2px solid
     ${({ theme }) => theme.colors.borderButton};
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radiuses[1]}px;
   background: ${({ theme }) => theme.colors.bgButton}
     url(/src/assets/img/svg/select_arrow.svg) 346px 34px
     no-repeat;
@@ -23,7 +24,8 @@ export const Select = styled.div`
   cursor: pointer;
 
   &.opened {
-    border-radius: 10px 10px 0 0;
+    border-radius: ${({ theme }) => theme.radiuses[1]}px
+      ${({ theme }) => theme.radiuses[1]}px 0 0;
   }
 
   &:hover,
@@ -35,16 +37,17 @@ export const Select = styled.div`
 
 export const OptionsWrapper = styled.div`
   position: absolute;
-  top: 90px;
+  top: ${({ theme }) => theme.additionalSpaces[7]}px;
   left: -2px;
 `
 
 export const SelectOption = styled.div`
   box-sizing: border-box;
-  width: 402px;
 
-  height: 59px;
-  padding-left: 27px;
+  width: ${({ theme }) => theme.sizes[18]}px;
+  height: ${({ theme }) => theme.sizes[5] - 1}px;
+  padding-left: ${({ theme }) =>
+    theme.additionalSpaces[2]}px;
 
   border: 2px solid
     ${({ theme }) => theme.colors.borderOptions};

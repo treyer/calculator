@@ -1,6 +1,7 @@
 // Color palette
 const black = '#000000'
 const white = '#ffffff'
+const grey = '#404040'
 const fontColorPrimary = white
 const fontColorSecondary = white
 const fontColorRemoveBtn = white
@@ -40,7 +41,34 @@ export default {
   size,
   boxShadows,
   spaces: [0, 4, 8, 16, 32, 64, 70, 84, 128],
+  additionalSpaces: [10, 20, 27, 32, 44, 50, 56, 90],
+  sizes: [
+    12,
+    20,
+    25,
+    30,
+    55,
+    60,
+    80,
+    90,
+    100,
+    120,
+    138,
+    150,
+    216,
+    224,
+    300,
+    324,
+    340,
+    365,
+    402,
+    700,
+    1120,
+    1150,
+    1446,
+  ],
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 60, 72, 80],
+  radiuses: [6, 10, 30],
   fontWeights: [
     100,
     200,
@@ -77,6 +105,7 @@ export default {
     secondaryLight,
     black,
     white,
+    grey,
     error,
   },
 }

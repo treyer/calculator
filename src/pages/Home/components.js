@@ -8,5 +8,8 @@ export const Card = styled.div`
   width: 100%;
   height: 100%;
 
-  padding: 22px 22px 22px 42px;
+  padding: ${({ theme }) => theme.additionalSpaces[1] + 2}px
+    ${({ theme }) => theme.additionalSpaces[1] + 2}px
+    ${({ theme }) => theme.additionalSpaces[1] + 2}px
+    ${({ theme }) => theme.additionalSpaces[4] - 2}px;
 `

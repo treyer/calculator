@@ -4,9 +4,10 @@ export const Button = styled.a`
   display: inline-block;
 
   box-sizing: border-box;
-  width: 402px;
-  height: 94px;
-  padding-left: 27px;
+  width: ${({ theme }) => theme.sizes[18]}px;
+  height: ${({ theme }) => theme.sizes[7] + 4}px;
+  padding-left: ${({ theme }) =>
+    theme.additionalSpaces[2]}px;
 
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
 
@@ -14,7 +15,7 @@ export const Button = styled.a`
   background-color: ${({ theme }) => theme.colors.bgButton};
   border: 2px solid
     ${({ theme }) => theme.colors.borderButton};
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radiuses[1]}px;
 
   cursor: pointer;
 

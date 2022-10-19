@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
-  height: 138px;
-  max-width: 1446px;
-  min-width: 700px;
+  height: ${({ theme }) => theme.sizes[10]}px;
+  max-width: ${({ theme }) => theme.sizes[22]}px;
+  min-width: ${({ theme }) => theme.sizes[19]}px;
 
   border-bottom: 3px solid
     ${({ theme }) => theme.colors.borderButton};
@@ -14,8 +14,8 @@ export const OutputWrapper = styled.div`
   position: relative;
 
   width: 100%;
-  height: 80px;
-  margin: 0 50px;
+  height: ${({ theme }) => theme.sizes[6]}px;
+  margin: 0 ${({ theme }) => theme.additionalSpaces[5]}px;
 
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -25,13 +25,13 @@ export const OutputWrapper = styled.div`
 export const Output = styled.div`
   position: absolute;
   right: 0;
-  top: 20px;
+  top: ${({ theme }) => theme.additionalSpaces[1]}px;
 
-  height: 60px;
-  margin: 0 44px;
+  height: ${({ theme }) => theme.sizes[5]}px;
+  margin: 0 ${({ theme }) => theme.additionalSpaces[4]}px;
 
-  font-size: 48px;
-  line-height: 60px;
+  font-size: ${({ theme }) => theme.fontSizes[6] + 8}px;
+  line-height: ${({ theme }) => theme.fontSizes[8]}px;
 
   white-space: nowrap;
 `
@@ -39,14 +39,14 @@ export const Output = styled.div`
 export const ExpressionOutput = styled.div`
   position: absolute;
   right: 0;
-  top: 5px;
+  top: ${({ theme }) => theme.spaces[1] + 1}px;
 
-  height: 20px;
-  margin: 0 44px;
+  height: ${({ theme }) => theme.sizes[1]}px;
+  margin: 0 ${({ theme }) => theme.additionalSpaces[4]}px;
 
-  color: #404040;
-  font-size: 28px;
-  line-height: 20px;
+  color: ${({ theme }) => theme.colors.grey};
+  font-size: ${({ theme }) => theme.fontSizes[5] - 4}px;
+  line-height: ${({ theme }) => theme.fontSizes[3]}px;
 
   white-space: nowrap;
 `

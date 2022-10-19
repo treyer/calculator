@@ -6,7 +6,8 @@ import theme from '@/theme'
 export const NavigationLink = styled(NavLink)`
   position: relative;
 
-  margin-left: 32px;
+  margin-left: ${({ theme }) =>
+    theme.additionalSpaces[3]}px;
 
   font-size: ${({ theme }) => theme.fontSizes[5]}px;
   font-weight: ${theme.fontWeights[3]};
